@@ -9,8 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Animation _spinAttackAnimation;
     [SerializeField] private Animation _slamAttackAnimation;
     [SerializeField] private Animation _pentagramAttackAnimation;
-    [SerializeField] private Animation _blastAttackAnimation;
-    
+
 
     [Header("Misc Assignables")]
     [SerializeField] private Camera _playerCamera;
