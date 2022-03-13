@@ -23,17 +23,22 @@ public class PlayerInput : MonoBehaviour
         {
             _playerMovementScript.GetInput();
         }
-        if (Input.GetButton("PrimaryAttack"))
-        {
-            _playerAttackScript.BasicAttack();
-        }
         if (Input.GetButtonDown("UseHealingItem"))
         {
             _playerHealingInventoryScript.UseItem();
         }
+        if (Input.GetButton("PrimaryAttack"))
+        {
+            _playerAttackScript.BasicAttack();
+        }
         if (Input.GetButton("SpinAttack"))
         {
             _playerAttackScript.SpinAttack();
+        }
+
+        if (Input.GetButton("SlamAttack"))
+        {
+            _playerAttackScript.SlamAttack();
         }
     }
 } 
