@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
 
     [SerializeField] private Image _healthBar;
     [SerializeField] private GameObject _canvas;
+
+    private bool _canTakeDamage = false;
 
     private void Awake()
     {
@@ -31,6 +34,8 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
 
     public void TakeDamage(float damageTaken)
     {
+        if (!_canTakeDamage) return;
+        
         _canvas.SetActive(true);
 
         if (_enemyStats._enemyCurrentHealth - damageTaken <= 0)
@@ -40,6 +45,8 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
         else _enemyStats._enemyCurrentHealth -= damageTaken;
 
         UpdateHealthBar();
+
+        StartCoroutine(DamageCooldown());
     }
 
     public void KillCharacter()
@@ -52,4 +59,10 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
         _healthBar.fillAmount = _enemyStats._enemyCurrentHealth / _enemyStats._enemyMaxHealth;
     }
 
+    IEnumerator DamageCooldown()
+    {
+        _canTakeDamage = false;
+        yield return new WaitForSeconds(0.5f);
+        _canTakeDamage = true;
+    }
 }
