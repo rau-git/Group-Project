@@ -5,10 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [Header("Animation Assignables")]
-    [SerializeField] private Animation _attackAnimation;
-    [SerializeField] private Animation _spinAttackAnimation;
-    [SerializeField] private Animation _slamAttackAnimation;
-    [SerializeField] private Animation _pentagramAttackAnimation;
+    [SerializeField] private Animator _animator;
 
 
     [Header("Misc Assignables")]
@@ -30,24 +27,25 @@ public class PlayerAttack : MonoBehaviour
     public void BasicAttack()
     {
         PlayerLookToAttack();
-        _attackAnimation.Play();
+        _animator.SetBool("basicAttack", true);
     }
 
     public void SpinAttack()
     {
         PlayerLookToAttack();
-        _spinAttackAnimation.Play();
+        _animator.SetBool("spinAttack", true);
     }
 
     public void SlamAttack()
     {
         PlayerLookToAttack();
-        _slamAttackAnimation.Play();
+        _animator.SetBool("slamAttack", true);
     }
 
-    public void PentagramAttack()
+    public void StopAnimation()
     {
-        PlayerLookToAttack();
-        _pentagramAttackAnimation.Play();
+        _animator.SetBool("basicAttack", false);
+        _animator.SetBool("spinAttack", false);
+        _animator.SetBool("slamAttack", false);
     }
 }

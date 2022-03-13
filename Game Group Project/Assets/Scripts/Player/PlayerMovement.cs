@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Camera _playerCamera;
     [SerializeField] private GameObject _showPositionPrefab;
     [SerializeField] private LayerMask _walkableLayer;
+    [SerializeField] private Animator _animator;
     private NavMeshAgent _agent;
 
     [Header("Movement Values")]
@@ -38,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100f, _walkableLayer))
         {
             SetCurrentMovePosition(hit.point);
-
+            _animator.SetBool("isMoving", true);
             _showPositionPrefab.SetActive(true);
             _showPositionPrefab.transform.position = GetCurrentMovePosition();
         }  
@@ -55,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, _movePosition) < 1.5f)
         {
             _showPositionPrefab.SetActive(false);
+            _animator.SetBool("isMoving", false);
         }
     }
 }
