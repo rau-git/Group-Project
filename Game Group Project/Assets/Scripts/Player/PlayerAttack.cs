@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("Attack Collider Assignables")]
     [SerializeField] private GameObject _slamAttackCollider;
+    [SerializeField] private GameObject _spinAttackCollider;
 
     [Header("Misc Assignables")]
     [SerializeField] private Camera _playerCamera;
@@ -16,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         SlamAttackColliderDeactivate();
+        SpinAttackColliderDeactivate();
     }
 
     public void PlayerLookToAttack()
@@ -57,6 +59,16 @@ public class PlayerAttack : MonoBehaviour
     public void SlamAttackColliderDeactivate()
     {
         _slamAttackCollider.SetActive(false);
+    }
+
+    public void SpinAttackColliderActivate()
+    {
+        _spinAttackCollider.SetActive(true);
+    }
+    
+    public void SpinAttackColliderDeactivate()
+    {
+        _spinAttackCollider.SetActive(false);
     }
 
     public void StopAnimation()

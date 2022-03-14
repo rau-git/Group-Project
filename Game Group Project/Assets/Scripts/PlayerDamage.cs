@@ -13,7 +13,6 @@ public class PlayerDamage : MonoBehaviour
         if (other.gameObject.GetComponent<Enemy>() != null)
         {
             other.gameObject.GetComponentInParent<Enemy>().TakeDamage(_playerStats._playerBaseDamage);
-            Debug.Log("I have damaged: " + other.gameObject.name + " for " + _playerStats._playerBaseDamage);
         }
     }
 }

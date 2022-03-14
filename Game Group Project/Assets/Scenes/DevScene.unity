@@ -1572,6 +1572,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7517572107874928138, guid: 52c2f3f64183e0346a96b6e3695c4897, type: 3}
   m_PrefabInstance: {fileID: 181343982}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &194853552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 194853553}
+  - component: {fileID: 194853555}
+  - component: {fileID: 194853554}
+  m_Layer: 0
+  m_Name: SpinAttackCollider
+  m_TagString: DamageObject
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &194853553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194853552}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1314017749}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &194853554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194853552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9b9c802f26ba74b8d97a90d41e578e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStats: {fileID: 1314017760}
+--- !u!135 &194853555
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194853552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &199630513
 GameObject:
   m_ObjectHideFlags: 0
@@ -24003,6 +24061,7 @@ Transform:
   m_Children:
   - {fileID: 1174340469}
   - {fileID: 977256413}
+  - {fileID: 194853553}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24125,6 +24184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1314017758}
   _slamAttackCollider: {fileID: 977256412}
+  _spinAttackCollider: {fileID: 194853552}
   _playerCamera: {fileID: 801111468}
 --- !u!114 &1314017756
 MonoBehaviour:
