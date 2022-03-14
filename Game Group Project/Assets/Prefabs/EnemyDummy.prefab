@@ -489,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0e02b6ef944bc469a71c4c1e9541af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathVFX: {fileID: 7111945547244984980, guid: d831f25fab479e84885867ba4830814f, type: 3}
   _healthBar: {fileID: 5553888394731769454}
   _canvas: {fileID: 3679371767369526843}
 --- !u!114 &-7611209221366742022

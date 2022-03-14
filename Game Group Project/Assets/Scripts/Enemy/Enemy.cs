@@ -12,10 +12,11 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
 
     private GameObject _camera;
 
+    [SerializeField] private GameObject _deathVFX;
     [SerializeField] private Image _healthBar;
     [SerializeField] private GameObject _canvas;
 
-    private bool _canTakeDamage = false;
+    private bool _canTakeDamage = true;
 
     private void Awake()
     {
@@ -51,6 +52,7 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
 
     public void KillCharacter()
     {
+        Instantiate(_deathVFX, transform.position - new Vector3(0, 1, 0), transform.rotation);
         Destroy(this.gameObject);
     }
 

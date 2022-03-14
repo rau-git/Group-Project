@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponDamage : MonoBehaviour
+public class PlayerDamage : MonoBehaviour
 {
     [Header("Assignables")]
     [SerializeField] private PlayerStats _playerStats;
@@ -12,6 +13,7 @@ public class WeaponDamage : MonoBehaviour
         if (other.gameObject.GetComponent<Enemy>() != null)
         {
             other.gameObject.GetComponentInParent<Enemy>().TakeDamage(_playerStats._playerBaseDamage);
+            Debug.Log("I have damaged: " + other.gameObject.name + " for " + _playerStats._playerBaseDamage);
         }
     }
 }

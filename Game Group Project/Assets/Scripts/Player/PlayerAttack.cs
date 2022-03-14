@@ -7,9 +7,16 @@ public class PlayerAttack : MonoBehaviour
     [Header("Animation Assignables")]
     [SerializeField] private Animator _animator;
 
+    [Header("Attack Collider Assignables")]
+    [SerializeField] private GameObject _slamAttackCollider;
 
     [Header("Misc Assignables")]
     [SerializeField] private Camera _playerCamera;
+
+    private void Awake()
+    {
+        SlamAttackColliderDeactivate();
+    }
 
     public void PlayerLookToAttack()
     {   
@@ -40,6 +47,16 @@ public class PlayerAttack : MonoBehaviour
     {
         PlayerLookToAttack();
         _animator.SetBool("slamAttack", true);
+    }
+
+    public void SlamAttackColliderActivate()
+    {
+        _slamAttackCollider.SetActive(true);
+    }
+    
+    public void SlamAttackColliderDeactivate()
+    {
+        _slamAttackCollider.SetActive(false);
     }
 
     public void StopAnimation()

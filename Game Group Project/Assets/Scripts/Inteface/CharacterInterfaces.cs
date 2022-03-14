@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamage<T>
+public interface IDamage<in T>
 {
     void TakeDamage(T damageAmount);
 }
 
-public interface IHeal<T>
+public interface IHeal<in T>
 {
     void HealCharacter(T healAmount);
 }
