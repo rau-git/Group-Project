@@ -24577,7 +24577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCurrentHealth: 50
   _playerMaxHealth: 100
-  _playerBaseDamage: 20
+  _playerBaseDamage: 150
 --- !u!1001 &1318324700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38727,7 +38727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7517572107874928139, guid: 52c2f3f64183e0346a96b6e3695c4897, type: 3}
       propertyPath: _enemyTypes.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7517572107874928139, guid: 52c2f3f64183e0346a96b6e3695c4897, type: 3}
       propertyPath: _enemyTypes.Array.data[0]
