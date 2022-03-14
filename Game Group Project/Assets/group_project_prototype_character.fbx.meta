@@ -78,6 +78,20 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.4183267
+        functionName: BasicAttackColliderActivate
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: b2186d7a9b28b4f4ea2d7ec8cc0e3580, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.7450199
+        functionName: BasicAttackColliderDeactivate
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: b2186d7a9b28b4f4ea2d7ec8cc0e3580, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
