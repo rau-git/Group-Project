@@ -19,9 +19,10 @@ public class PlayerAttack : MonoBehaviour
     {
         SlamAttackColliderDeactivate();
         SpinAttackColliderDeactivate();
+        BasicAttackColliderDeactivate();
     }
 
-    public void PlayerLookToAttack()
+    private void PlayerLookToAttack()
     {   
         RaycastHit hit;
         Ray ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
@@ -52,32 +53,32 @@ public class PlayerAttack : MonoBehaviour
         _animator.SetBool("slamAttack", true);
     }
 
-    public void SlamAttackColliderActivate()
+    private void SlamAttackColliderActivate()
     {
         _slamAttackCollider.SetActive(true);
     }
     
-    public void SlamAttackColliderDeactivate()
+    private void SlamAttackColliderDeactivate()
     {
         _slamAttackCollider.SetActive(false);
     }
 
-    public void SpinAttackColliderActivate()
+    private void SpinAttackColliderActivate()
     {
         _spinAttackCollider.SetActive(true);
     }
     
-    public void SpinAttackColliderDeactivate()
+    private void SpinAttackColliderDeactivate()
     {
         _spinAttackCollider.SetActive(false);
     }
     
-    public void BasicAttackColliderActivate()
+    private void BasicAttackColliderActivate()
     {
         _basicAttackCollider.SetActive(true);
     }
     
-    public void BasicAttackColliderDeactivate()
+    private void BasicAttackColliderDeactivate()
     {
         _basicAttackCollider.SetActive(false);
     }

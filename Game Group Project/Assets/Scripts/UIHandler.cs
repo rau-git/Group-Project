@@ -17,4 +17,10 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _quantityUI;
     [SerializeField] private TextMeshProUGUI _useHealingItemKeybindText;
     [SerializeField] private TextMeshProUGUI _useSpinAttackKeybindText;
+
+    private void Update()
+    {
+        _playerHealthbar.fillAmount = _playerStats._playerCurrentHealth / _playerStats._playerMaxHealth;
+        _quantityUI.text = _itemObject._itemQuantity.ToString();
+    }
 }
