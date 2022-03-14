@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Media;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,7 +13,7 @@ public class EnemyAI : MonoBehaviour
     [Header("Attributes")]
     [Range(0, 20)]
     [SerializeField] private float _viewDistance;
-
+    
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
