@@ -38723,7 +38723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7517572107874928139, guid: 52c2f3f64183e0346a96b6e3695c4897, type: 3}
       propertyPath: _spawnAmount
-      value: 200
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7517572107874928139, guid: 52c2f3f64183e0346a96b6e3695c4897, type: 3}
       propertyPath: _enemyTypes.Array.size
