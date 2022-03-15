@@ -35,7 +35,6 @@ public class PlayerInput : MonoBehaviour
         {
             _playerAttackScript.SpinAttack();
         }
-
         if (Input.GetButton("SlamAttack"))
         {
             _playerAttackScript.SlamAttack();

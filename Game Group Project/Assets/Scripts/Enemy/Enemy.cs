@@ -28,10 +28,7 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
         _canvas.SetActive(false);
     }
 
-    private void Update()
-    {
-        _canvas.transform.LookAt(_camera.transform.position);
-    }
+    private void Update() => _canvas.transform.LookAt(_camera.transform.position);
 
     public void TakeDamage(float damageTaken)
     {
@@ -53,15 +50,12 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
     public void KillCharacter()
     {
         Instantiate(_deathVFX, transform.position - new Vector3(0, 1, 0), transform.rotation);
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
-    private void UpdateHealthBar()
-    {
-        _healthBar.fillAmount = _enemyStats._enemyCurrentHealth / _enemyStats._enemyMaxHealth;
-    }
+    private void UpdateHealthBar() => _healthBar.fillAmount = _enemyStats._enemyCurrentHealth / _enemyStats._enemyMaxHealth;
 
-    IEnumerator DamageCooldown()
+    private IEnumerator DamageCooldown()
     {
         _canTakeDamage = false;
         yield return new WaitForSeconds(0.25f);

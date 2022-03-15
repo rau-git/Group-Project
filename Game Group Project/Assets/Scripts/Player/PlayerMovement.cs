@@ -21,43 +21,35 @@ public class PlayerMovement : MonoBehaviour
         _showPositionPrefab.SetActive(false);
     }
 
-    private void Update()
-    {
-        ShowPositionVisualHandler();
-    }
+    private void Update() => ShowPositionVisualHandler();
 
-    private void FixedUpdate()
-    {
-        MoveCharacter();
-    }
+    private void FixedUpdate() => MoveCharacter();
 
     public void GetInput()
     {
         Ray ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 100f, _walkableLayer))
-        {
-            SetCurrentMovePosition(hit.point);
-            _animator.SetBool("isMoving", true);
-            _showPositionPrefab.SetActive(true);
-            _showPositionPrefab.transform.position = GetCurrentMovePosition();
-        }  
+        if (!Physics.Raycast(ray, out var hit, 100f, _walkableLayer)) return;
+        
+        SetCurrentMovePosition(hit.point);
+            
+        _animator.SetBool("isMoving", true);
+        _showPositionPrefab.SetActive(true);
+        _showPositionPrefab.transform.position = GetCurrentMovePosition();
     }
 
-    public void MoveCharacter() => _agent.SetDestination(GetCurrentMovePosition());
+    private void SetCurrentMovePosition(Vector3 moveToHere) => _movePosition = moveToHere;
 
-    public void SetCurrentMovePosition(Vector3 moveToHere) => _movePosition = moveToHere;
+    private void MoveCharacter() => _agent.SetDestination(GetCurrentMovePosition());
 
-    public Vector3 GetCurrentMovePosition() => _movePosition;
+    private Vector3 GetCurrentMovePosition() => _movePosition;
 
     private void ShowPositionVisualHandler()
     {
-        if (Vector3.Distance(transform.position, _movePosition) < 1.5f)
-        {
-            _showPositionPrefab.SetActive(false);
-            _animator.SetBool("isMoving", false);
-        }
+        if ((Vector3.Distance(transform.position, _movePosition) > 1.5f)) return;
+        
+        _showPositionPrefab.SetActive(false);
+        _animator.SetBool("isMoving", false);
     }
 }
 

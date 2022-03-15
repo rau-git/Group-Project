@@ -23,14 +23,13 @@ public class PlayerAttack : MonoBehaviour
     }
 
     private void PlayerLookToAttack()
-    {   
-        RaycastHit hit;
+    {
         Ray ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
         
-        Physics.Raycast(ray, out hit);
+        Physics.Raycast(ray, out var hit);
 
         Vector3 lookAtPos = hit.point;
-        lookAtPos.y = this.transform.position.y;
+        lookAtPos.y = transform.position.y;
 
         transform.LookAt(lookAtPos);
     }
@@ -53,35 +52,17 @@ public class PlayerAttack : MonoBehaviour
         _animator.SetBool("slamAttack", true);
     }
 
-    private void SlamAttackColliderActivate()
-    {
-        _slamAttackCollider.SetActive(true);
-    }
-    
-    private void SlamAttackColliderDeactivate()
-    {
-        _slamAttackCollider.SetActive(false);
-    }
+    private void SlamAttackColliderActivate() => _slamAttackCollider.SetActive(true);
 
-    private void SpinAttackColliderActivate()
-    {
-        _spinAttackCollider.SetActive(true);
-    }
-    
-    private void SpinAttackColliderDeactivate()
-    {
-        _spinAttackCollider.SetActive(false);
-    }
-    
-    private void BasicAttackColliderActivate()
-    {
-        _basicAttackCollider.SetActive(true);
-    }
-    
-    private void BasicAttackColliderDeactivate()
-    {
-        _basicAttackCollider.SetActive(false);
-    }
+    private void SlamAttackColliderDeactivate() => _slamAttackCollider.SetActive(false);
+
+    private void SpinAttackColliderActivate() => _spinAttackCollider.SetActive(true);
+
+    private void SpinAttackColliderDeactivate() => _spinAttackCollider.SetActive(false);
+
+    private void BasicAttackColliderActivate() => _basicAttackCollider.SetActive(true);
+
+    private void BasicAttackColliderDeactivate() => _basicAttackCollider.SetActive(false);
 
     public void StopAnimation()
     {

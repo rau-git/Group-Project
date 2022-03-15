@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PickupableObject : MonoBehaviour
 {
-    [SerializeField]
-    private ItemObject _item;
+    [Header("Assignables")]
+    [SerializeField] private ItemObject _item;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            other.GetComponent<PlayerInventoryScript>().AddItem(_item);
-            Destroy(this.gameObject);
-        }
+        if (!other.gameObject.CompareTag("Player")) return;
+        
+        other.GetComponent<PlayerInventoryScript>().AddItem(_item);
+        Destroy(this.gameObject);
     }
 }

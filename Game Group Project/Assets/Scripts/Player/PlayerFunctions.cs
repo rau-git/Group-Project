@@ -1,17 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerFunctions : MonoBehaviour, IDamage<float>, IHeal<float>, IKill
 {
     [Header("Assignables")]
     private PlayerStats _playerStats;
 
-    private void Awake()
-    {
-        _playerStats = GetComponent<PlayerStats>();
-    }
+    private void Awake() => _playerStats = GetComponent<PlayerStats>();
 
     public void TakeDamage(float damageTaken)
     {
@@ -23,13 +19,7 @@ public class PlayerFunctions : MonoBehaviour, IDamage<float>, IHeal<float>, IKil
         }
     }
 
-    public void HealCharacter(float healAmount)
-    {
-        Mathf.Clamp(_playerStats._playerCurrentHealth += healAmount, 0, _playerStats._playerMaxHealth);
-    }
+    public void HealCharacter(float healAmount) => Mathf.Clamp(_playerStats._playerCurrentHealth += healAmount, 0, _playerStats._playerMaxHealth);
 
-    public void KillCharacter()
-    {
-        Debug.Log("Character is dead! :C");
-    }
+    public void KillCharacter() => Debug.Log("Character is dead! :C");
 }
