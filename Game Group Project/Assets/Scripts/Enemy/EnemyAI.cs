@@ -28,14 +28,5 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void RunToPlayer()
-    { 
-        _agent.SetDestination(_player.transform.position);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _viewDistance);
-    }
+    private void RunToPlayer() => _agent.SetDestination(_player.transform.position);
 }

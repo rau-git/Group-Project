@@ -7,7 +7,7 @@ using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Enemy Prefab")]
+    [Header("Enemy Prefabs")]
     [SerializeField] List<GameObject> _enemyTypes;
     [Space(20)]
 
@@ -37,13 +37,11 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector3 GetRandomPosition()
     {
-        Vector3 spawnPosition = Vector3.zero;
         Vector3 randomPosition = transform.position + new Vector3(Random.Range(-xBounds / 2, xBounds / 2), Random.Range(-yBounds / 2, yBounds / 2), Random.Range(-zBounds / 2, zBounds / 2));
 
-        NavMeshHit hit;
-        NavMesh.SamplePosition(randomPosition, out hit, _spawnRange, NavMesh.AllAreas);
+        NavMesh.SamplePosition(randomPosition, out var hit, _spawnRange, NavMesh.AllAreas);
         
-        spawnPosition = hit.position;
+        Vector3 spawnPosition = hit.position;
 
         return spawnPosition;
     }

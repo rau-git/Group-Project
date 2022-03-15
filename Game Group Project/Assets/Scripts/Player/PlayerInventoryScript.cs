@@ -9,22 +9,15 @@ public class PlayerInventoryScript : MonoBehaviour
     [SerializeField] private ItemObject _healingItem;
     [SerializeField] private PlayerFunctions _playerFunctions;
 
-    private void Awake()
-    {
-        _healingItemInventory.Add(_healingItem);
-    }
+    private void Awake() => _healingItemInventory.Add(_healingItem);
 
-    public void AddItem(ItemObject itemToAdd)
-    {
-        itemToAdd._itemQuantity += 1;
-    }
+    public void AddItem(ItemObject itemToAdd) => itemToAdd._itemQuantity += 1;
 
     public void UseItem()
     {
-        if (_healingItem._itemQuantity > 0)
-        {
-            _healingItem._itemQuantity -= 1;
-            _playerFunctions.HealCharacter(_healingItem._itemHealAmount);
-        }
+        if (_healingItem._itemQuantity <= 0) return;
+        
+        _healingItem._itemQuantity -= 1;
+        _playerFunctions.HealCharacter(_healingItem._itemHealAmount);
     }
 }
