@@ -8,4 +8,6 @@ public class EnemyStats : MonoBehaviour
     public float _enemyCurrentHealth;
     public float _enemyMaxHealth;
     public float _enemyBaseDamage;
+    public float _enemyVisionRange;
+    public float _enemyAttackRange;
 }
