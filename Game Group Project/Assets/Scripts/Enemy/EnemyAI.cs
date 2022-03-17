@@ -80,6 +80,8 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackToChase()
     {
+        _agent.SetDestination(transform.position);
+        
         if (Vector3.Distance(transform.position, _player.transform.position) > _enemyStats._enemyAttackRange)
         {
             _enemyState = States.ChaseState;
@@ -87,10 +89,4 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void RunToPlayer() => _agent.SetDestination(_player.transform.position);
-
-    private void OnDrawGizmos()
-    {
-        Handles.color = Color.red;
-        Handles.Label(transform.position + Vector3.up, _enemyState.ToString());
-    }
 }
