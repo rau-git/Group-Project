@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -23,6 +26,16 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float yBounds;
     [SerializeField] private float zBounds;
 
+    [Header("Assignables")] 
+    private Collider _myCollider;
+
+    public List<GameObject> _enemyList;
+
+    public void Awake()
+    {
+        _myCollider = GetComponent<Collider>();
+    }
+
     [ContextMenu("Populate")]
     public void PopulateNavmesh()
     {
@@ -30,9 +43,18 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < _spawnAmount / _enemyTypes.Capacity; i++)
             {
-                Instantiate(enemy, GetRandomPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+                GameObject instantiatedObject = Instantiate(enemy, GetRandomPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+                _enemyList.Add(instantiatedObject);
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+        
+        PopulateNavmesh();
+        _myCollider.enabled = false;
     }
 
     private Vector3 GetRandomPosition()
