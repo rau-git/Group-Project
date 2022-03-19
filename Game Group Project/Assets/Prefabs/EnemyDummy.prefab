@@ -571,7 +571,7 @@ MonoBehaviour:
   _enemyCurrentHealth: 0
   _enemyMaxHealth: 100
   _enemyBaseDamage: 1
-  _enemyVisionRange: 15
+  _enemyVisionRange: 1000
   _enemyAttackRange: 3
 --- !u!114 &5152551445668847960
 MonoBehaviour:
@@ -609,9 +609,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c33e1c2e0b5a30a46a8f7b462845ef0d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 35cba2d3056702b4fa90695b13a98ec5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.084
   m_Pitch: 1
   Loop: 1
   Mute: 0

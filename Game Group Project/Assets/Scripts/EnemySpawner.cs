@@ -27,14 +27,25 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float zBounds;
 
     [Header("Assignables")] 
+    [SerializeField] private FloorManager _floorManager;
     private Collider _myCollider;
 
-    public List<GameObject> _enemyList;
+    public List<GameObject> _enemyList = new List<GameObject>();
 
-    public void Awake()
+    private void Awake()
     {
         _myCollider = GetComponent<Collider>();
     }
+
+    private void FixedUpdate()
+    {
+        RemoveNullElements();
+        CheckEnemyCount();
+    }
+
+    private void RemoveNullElements() => _enemyList.RemoveAll(listObject => listObject == null);
+
+    private void CheckEnemyCount() => _floorManager.SetDoorStatus(_enemyList.Count > 0);
 
     [ContextMenu("Populate")]
     public void PopulateNavmesh()

@@ -24,11 +24,6 @@ public class FloorManager : MonoBehaviour
         _playerSpawnPosition = _player.transform.position;
     }
 
-    private void FixedUpdate()
-    {
-        OpenExitDoor();
-    }
-
     private void RestartLevel()
     {
         _exitDoor.SetActive(true);
@@ -44,13 +39,8 @@ public class FloorManager : MonoBehaviour
         RestartLevel();
     }
 
-    private void OpenExitDoor()
+    public void SetDoorStatus(bool input)
     {
-        _enemySpawner._enemyList.RemoveAll(listObject => listObject == null);
-        
-        if (_enemySpawner._enemyList.Count <= 0)
-        {
-            _exitDoor.SetActive(false);
-        }
+        _exitDoor.SetActive(input);
     }
 }

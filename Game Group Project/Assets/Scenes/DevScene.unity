@@ -2266,8 +2266,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7517572107874928139, guid: 52c2f3f64183e0346a96b6e3695c4897, type: 3}
       propertyPath: _spawnAmount
-      value: 3
+      value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 7517572107874928139, guid: 52c2f3f64183e0346a96b6e3695c4897, type: 3}
+      propertyPath: _floorManager
+      value: 
+      objectReference: {fileID: 983593298}
     - target: {fileID: 7517572107874928139, guid: 52c2f3f64183e0346a96b6e3695c4897, type: 3}
       propertyPath: _enemyTypes.Array.size
       value: 1
@@ -15394,7 +15398,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871429631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -27605,7 +27609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1390832989
 Transform:
   m_ObjectHideFlags: 0
