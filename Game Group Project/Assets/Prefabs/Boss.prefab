@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 1223530118570089748}
   - component: {fileID: 7384246025064231051}
   m_Layer: 0
-  m_Name: EnemyDummy
+  m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -446,7 +446,7 @@ Transform:
   m_GameObject: {fileID: 7484078609778352213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2357459858763686017}
   - {fileID: 2862605654481578481}
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyCurrentHealth: 0
-  _enemyMaxHealth: 100
+  _enemyMaxHealth: 2000
   _enemyBaseDamage: 1
   _enemyVisionRange: 1000
   _enemyAttackRange: 3
@@ -609,7 +609,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 35cba2d3056702b4fa90695b13a98ec5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 43487444432f175478f75d7552994d38, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.084
   m_Pitch: 1
