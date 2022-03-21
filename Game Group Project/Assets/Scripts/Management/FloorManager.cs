@@ -29,12 +29,12 @@ public class FloorManager : MonoBehaviour
 
     private void RestartLevel()
     {
-        _enemySpawnTrigger.enabled = true;
+        Instantiate(_bossPrefab, _bossSpawnLocation.transform.position, _bossSpawnLocation.transform.rotation);
         _playerAgent.enabled = false;
         _player.transform.position = _playerSpawnPosition;
         _playerAgent.enabled = true;
         _exitDoor.SetActive(true);
-        Instantiate(_bossPrefab, _bossSpawnLocation.transform.position, _bossSpawnLocation.transform.rotation);
+        _enemySpawnTrigger.enabled = true;
         _enemySpawner._enemyList.Clear();
     }
 
