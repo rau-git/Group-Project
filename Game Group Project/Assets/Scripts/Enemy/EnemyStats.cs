@@ -10,4 +10,13 @@ public class EnemyStats : MonoBehaviour
     public float _enemyBaseDamage;
     public float _enemyVisionRange;
     public float _enemyAttackRange;
+
+    private void Awake()
+    {
+        _enemyCurrentHealth = 100;
+        _enemyMaxHealth = 100;
+        _enemyBaseDamage = 1;
+        _enemyVisionRange = 1000;
+        _enemyAttackRange = 3;
+    }
 }

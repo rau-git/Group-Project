@@ -10,9 +10,13 @@ public class FloorManager : MonoBehaviour
     [SerializeField] private GameObject _exitDoor;
     [SerializeField] private GameObject _bossSpawnLocation;
     [SerializeField] private GameObject _bossPrefab;
+    [SerializeField] private GameObject _upgradeMenu;
     [SerializeField] private Collider _enemySpawnTrigger;
     [SerializeField] private NavMeshAgent _playerAgent;
     [SerializeField] private EnemySpawner _enemySpawner;
+    [SerializeField] private GameManagement _gameManagement;
+    [SerializeField] private PauseManager _pauseManager;
+    
     private Vector3 _playerSpawnPosition;
     private GameObject _player;
 
@@ -29,10 +33,11 @@ public class FloorManager : MonoBehaviour
 
     private void RestartLevel()
     {
-        Instantiate(_bossPrefab, _bossSpawnLocation.transform.position, _bossSpawnLocation.transform.rotation);
+        _gameManagement.IncreaseFloor();
         _playerAgent.enabled = false;
         _player.transform.position = _playerSpawnPosition;
         _playerAgent.enabled = true;
+        Instantiate(_bossPrefab, _bossSpawnLocation.transform.position, _bossSpawnLocation.transform.rotation);
         _exitDoor.SetActive(true);
         _enemySpawnTrigger.enabled = true;
         _enemySpawner._enemyList.Clear();
@@ -43,7 +48,14 @@ public class FloorManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             RestartLevel();
+            OpenPlayerUpgradeMenu();
         }
+    }
+
+    private void OpenPlayerUpgradeMenu()
+    {
+        _pauseManager.SwitchPauseBool();
+        _upgradeMenu.SetActive(true);
     }
 
     public void SetDoorStatus(bool input)

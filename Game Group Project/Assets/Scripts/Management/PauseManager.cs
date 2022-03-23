@@ -24,9 +24,11 @@ public class PauseManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SwitchPauseBool();
+            _pauseMenu.SetActive(_pauseBool);
         }
     }
 
+    [ContextMenu("Pause")]
     public void SwitchPauseBool()
     {
         _pauseBool = !_pauseBool;
@@ -35,7 +37,6 @@ public class PauseManager : MonoBehaviour
 
     private void PauseGame()
     {
-        _pauseMenu.SetActive(_pauseBool);
         AudioListener.pause = _pauseBool;
         
         if (_pauseBool)

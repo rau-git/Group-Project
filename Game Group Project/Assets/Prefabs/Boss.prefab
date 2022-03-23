@@ -556,6 +556,7 @@ MonoBehaviour:
   _deathVFX: {fileID: 7111945547244984980, guid: d831f25fab479e84885867ba4830814f, type: 3}
   _healthBar: {fileID: 5553888394731769454}
   _canvas: {fileID: 3679371767369526843}
+  _gameManagement: {fileID: 2858614696577615616, guid: d3ad300aed7e03a4389cb9c73a961a1a, type: 3}
 --- !u!114 &-7611209221366742022
 MonoBehaviour:
   m_ObjectHideFlags: 0

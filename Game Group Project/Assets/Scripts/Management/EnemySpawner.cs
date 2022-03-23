@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using MiscUtil.Linq.Extensions;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -28,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Assignables")] 
     [SerializeField] private FloorManager _floorManager;
+    [SerializeField] private GameManagement _gameManagement;
     private Collider _myCollider;
 
     public List<GameObject> _enemyList = new List<GameObject>();
@@ -66,6 +68,8 @@ public class EnemySpawner : MonoBehaviour
         
         PopulateNavmesh();
         _myCollider.enabled = false;
+        
+        _enemyList.Sort();
     }
 
     private Vector3 GetRandomPosition()

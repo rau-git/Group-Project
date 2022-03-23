@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
     [SerializeField] private Image _healthBar;
     [SerializeField] private GameObject _canvas;
 
+    [SerializeField] private GameManagement _gameManagement;
+
     private bool _canTakeDamage = true;
 
     private void Awake()
@@ -26,6 +28,13 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
         _enemyStats._enemyCurrentHealth = _enemyStats._enemyMaxHealth;
 
         _canvas.SetActive(false);
+    }
+
+    private void Start()
+    {
+        _enemyStats._enemyMaxHealth *= _gameManagement._currentDifficulty;
+        _enemyStats._enemyBaseDamage *= _gameManagement._currentDifficulty;
+        _enemyStats._enemyCurrentHealth = _enemyStats._enemyMaxHealth;
     }
 
     private void Update() => _canvas.transform.LookAt(_camera.transform.position);
@@ -50,6 +59,8 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
     public void KillCharacter()
     {
         Instantiate(_deathVFX, transform.position - new Vector3(0, 1, 0), transform.rotation);
+        _gameManagement._enemiesKilled += 1;
+        _gameManagement._currencyCurrent += Mathf.RoundToInt(Random.Range(0, 100) * _gameManagement._currentDifficulty);
         Destroy(gameObject);
     }
 
