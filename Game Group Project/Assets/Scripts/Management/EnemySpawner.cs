@@ -30,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Assignables")] 
     [SerializeField] private FloorManager _floorManager;
     [SerializeField] private GameManagement _gameManagement;
+    
     private Collider _myCollider;
 
     public List<GameObject> _enemyList = new List<GameObject>();
@@ -68,8 +69,6 @@ public class EnemySpawner : MonoBehaviour
         
         PopulateNavmesh();
         _myCollider.enabled = false;
-        
-        _enemyList.Sort();
     }
 
     private Vector3 GetRandomPosition()

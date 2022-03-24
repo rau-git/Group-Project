@@ -8,4 +8,14 @@ public class PlayerStats : MonoBehaviour
     public float _playerCurrentHealth;
     public float _playerMaxHealth;
     public float _playerBaseDamage;
+    
+    public void UpgradeMaxHealth(float increaseValue)
+    {
+        _playerMaxHealth += increaseValue;
+    }
+
+    public void UpgradeBaseDamage(float increaseValue)
+    {
+        _playerBaseDamage += increaseValue;
+    }
 }

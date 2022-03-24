@@ -33,23 +33,22 @@ public class FloorManager : MonoBehaviour
 
     private void RestartLevel()
     {
+        _enemySpawner._enemyList.Clear();
         _gameManagement.IncreaseFloor();
-        _playerAgent.enabled = false;
         _player.transform.position = _playerSpawnPosition;
+        _playerAgent.enabled = false;
         _playerAgent.enabled = true;
         Instantiate(_bossPrefab, _bossSpawnLocation.transform.position, _bossSpawnLocation.transform.rotation);
         _exitDoor.SetActive(true);
         _enemySpawnTrigger.enabled = true;
-        _enemySpawner._enemyList.Clear();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            RestartLevel();
-            OpenPlayerUpgradeMenu();
-        }
+        if (!other.CompareTag("Player")) return;
+        
+        RestartLevel();
+        OpenPlayerUpgradeMenu();
     }
 
     private void OpenPlayerUpgradeMenu()
