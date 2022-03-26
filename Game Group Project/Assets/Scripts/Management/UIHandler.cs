@@ -12,6 +12,7 @@ public class UIHandler : MonoBehaviour
     [Space(10)]
 
     [SerializeField] private Image _playerHealthbar;
+    [SerializeField] private TextMeshProUGUI _playerHealthPercentage;
     [Space(10)]
 
     [SerializeField] private TextMeshProUGUI _quantityUI;
@@ -20,7 +21,9 @@ public class UIHandler : MonoBehaviour
 
     private void Update()
     {
-        _playerHealthbar.fillAmount = _playerStats._playerCurrentHealth / _playerStats._playerMaxHealth;
+        float playerHealth = _playerStats._playerCurrentHealth / _playerStats._playerMaxHealth;
+        _playerHealthbar.fillAmount = playerHealth;
+        _playerHealthPercentage.text = Mathf.RoundToInt(playerHealth * 100).ToString() + "%";
         _quantityUI.text = _itemObject._itemQuantity.ToString();
     }
 }

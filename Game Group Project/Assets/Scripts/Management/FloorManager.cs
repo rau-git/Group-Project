@@ -13,6 +13,7 @@ public class FloorManager : MonoBehaviour
     [SerializeField] private GameObject _upgradeMenu;
     [SerializeField] private Collider _enemySpawnTrigger;
     [SerializeField] private NavMeshAgent _playerAgent;
+    [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private GameManagement _gameManagement;
     [SerializeField] private PauseManager _pauseManager;
@@ -37,6 +38,7 @@ public class FloorManager : MonoBehaviour
         _gameManagement.IncreaseFloor();
         _player.transform.position = _playerSpawnPosition;
         _playerAgent.enabled = false;
+        _playerMovement.SetCurrentMovePosition(_player.transform.position);
         _playerAgent.enabled = true;
         Instantiate(_bossPrefab, _bossSpawnLocation.transform.position, _bossSpawnLocation.transform.rotation);
         _exitDoor.SetActive(true);

@@ -20,6 +20,11 @@ public class PlayerMovement : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _showPositionPrefab.SetActive(false);
     }
+    
+    private void Start()
+    {
+        SetCurrentMovePosition(transform.position);
+    }
 
     private void Update() => ShowPositionVisualHandler();
 
@@ -38,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         _showPositionPrefab.transform.position = GetCurrentMovePosition();
     }
 
-    private void SetCurrentMovePosition(Vector3 moveToHere) => _movePosition = moveToHere;
+    public void SetCurrentMovePosition(Vector3 moveToHere) => _movePosition = moveToHere;
 
     private void MoveCharacter() => _agent.SetDestination(GetCurrentMovePosition());
 
