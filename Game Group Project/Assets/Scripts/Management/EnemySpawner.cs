@@ -53,6 +53,8 @@ public class EnemySpawner : MonoBehaviour
     [ContextMenu("Populate")]
     public void PopulateNavmesh()
     {
+        _spawnAmount = Mathf.RoundToInt(_spawnAmount * _gameManagement._currentDifficulty);
+        
         foreach (GameObject enemy in _enemyTypes)
         {
             for (int i = 0; i < _spawnAmount / _enemyTypes.Capacity; i++)

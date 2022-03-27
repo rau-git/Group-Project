@@ -10,6 +10,7 @@ using UnityEditor;
 public class EnemyAI : MonoBehaviour
 {
     [Header("Assignables")]
+    [SerializeField] private AudioSource _audioSource;
     private NavMeshAgent _agent;
     private GameObject _player;
     private EnemyStats _enemyStats;
@@ -60,6 +61,7 @@ public class EnemyAI : MonoBehaviour
         if (Vector3.Distance(transform.position, _player.transform.position) < _enemyStats._enemyVisionRange)
         {
             _enemyState = States.ChaseState;
+            _audioSource.Play();
         }
     }
 

@@ -572,7 +572,7 @@ MonoBehaviour:
   _enemyCurrentHealth: 0
   _enemyMaxHealth: 100
   _enemyBaseDamage: 1
-  _enemyVisionRange: 1000
+  _enemyVisionRange: 6
   _enemyAttackRange: 3
 --- !u!114 &5152551445668847960
 MonoBehaviour:
@@ -586,6 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89c3a1df9e64424a9c460a0c52f8341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSource: {fileID: 1223530118570089748}
   _enemyState: 0
 --- !u!65 &6263057109730147976
 BoxCollider:
@@ -610,11 +611,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 35cba2d3056702b4fa90695b13a98ec5, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.084
+  m_audioClip: {fileID: 8300000, guid: 91774f4ac3cde9b4ba817ca3f2e6b869, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.509
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

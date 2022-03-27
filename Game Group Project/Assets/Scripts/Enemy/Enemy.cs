@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
     {
         Instantiate(_deathVFX, transform.position - new Vector3(0, 1, 0), transform.rotation);
         _gameManagement._enemiesKilled += 1;
-        _gameManagement._currencyCurrent += Mathf.RoundToInt(Random.Range(0, 100) * _gameManagement._currentDifficulty);
+        _gameManagement._currencyCurrent += Mathf.RoundToInt(Random.Range(0, 10) * _gameManagement._currentDifficulty);
         Destroy(gameObject);
     }
 

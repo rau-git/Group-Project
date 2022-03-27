@@ -16,7 +16,7 @@ public class EnemyStats : MonoBehaviour
         _enemyCurrentHealth = 100;
         _enemyMaxHealth = 100;
         _enemyBaseDamage = 1;
-        _enemyVisionRange = 1000;
+        _enemyVisionRange = 20;
         _enemyAttackRange = 3;
     }
 }

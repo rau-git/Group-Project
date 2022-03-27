@@ -60,9 +60,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentPlayerFloor: 0
   _currentDifficulty: 0
+  _currencyCurrent: 0
   _enemiesKilled: 0
   _bossesKilled: 0
   _currencyGatheredTotal: 0
-  _currencyCurrent: 0
   _currencySpent: 0
   _highestFloor: 0

@@ -7,13 +7,12 @@ public class GameManagement : MonoBehaviour
     [Header("Current Game Tracking Variables")]
     public int _currentPlayerFloor;
     public float _currentDifficulty;
-
+    public int _currencyCurrent;
 
     [Header("Statistics Tracking")] 
     public int _enemiesKilled;
     public int _bossesKilled;
     public int _currencyGatheredTotal;
-    public int _currencyCurrent;
     public int _currencySpent;
     public int _highestFloor;
 
