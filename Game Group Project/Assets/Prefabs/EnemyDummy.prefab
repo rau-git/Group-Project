@@ -554,6 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathVFX: {fileID: 7111945547244984980, guid: d831f25fab479e84885867ba4830814f, type: 3}
+  _healingPotion: {fileID: 77938944331696846, guid: db2751796d9d2854fadece85e5849c69, type: 3}
   _healthBar: {fileID: 5553888394731769454}
   _canvas: {fileID: 3679371767369526843}
   _gameManagement: {fileID: 2858614696577615616, guid: d3ad300aed7e03a4389cb9c73a961a1a, type: 3}

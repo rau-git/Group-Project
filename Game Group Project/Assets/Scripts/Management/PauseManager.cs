@@ -12,6 +12,7 @@ public class PauseManager : MonoBehaviour
     
     [Header("Assignables")]
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _playerHUD;
 
     private void Awake()
     {
@@ -32,7 +33,14 @@ public class PauseManager : MonoBehaviour
     public void SwitchPauseBool()
     {
         _pauseBool = !_pauseBool;
+        _playerHUD.SetActive(!_pauseBool);
         PauseGame();
+    }
+
+    public void ResumeGame()
+    {
+        SwitchPauseBool();
+        _pauseMenu.SetActive(_pauseBool);
     }
 
     private void PauseGame()
@@ -49,5 +57,10 @@ public class PauseManager : MonoBehaviour
             Time.timeScale = 1;
             _playerInputScript.enabled = true;
         }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

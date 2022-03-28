@@ -19,8 +19,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 940
     y: -190
-    width: 1645
-    height: 2074
+    width: 1644
+    height: 1991
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_ImportDependencies: []
   m_GraphVersion: 6
   m_ResourceVersion: 1
-  m_saved: 1
+  m_saved: 0
   m_SubgraphDependencies: []
   m_CategoryPath: 
 --- !u!2058629511 &8926484042661614527
@@ -538,7 +538,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-1.0,"y":2.0,"z":-1.0}}'
+      m_SerializableObject: '{"vector":{"x":-1.0,"y":3.0,"z":-1.0}}'
     m_Space: 0
   m_Property:
     name: A
@@ -708,7 +708,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":1.0,"y":4.0,"z":1.0}}'
+      m_SerializableObject: '{"vector":{"x":1.0,"y":5.0,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: B
@@ -954,8 +954,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614601}
-  - {fileID: 8926484042661614853}
-  m_UIPosition: {x: 942, y: 1497}
+  m_UIPosition: {x: 940, y: 1525}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -1112,7 +1111,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.05
+      m_SerializableObject: 0.2
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -1462,7 +1461,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Plane, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.0,"y":0.0,"z":0.0},"normal":{"x":0.0,"y":1.0,"z":0.0}}'
+      m_SerializableObject: '{"position":{"x":0.0,"y":-1.0,"z":0.0},"normal":{"x":0.0,"y":1.0,"z":0.0}}'
     m_Space: 0
   m_Property:
     name: Plane
@@ -1766,7 +1765,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: Bounce
@@ -1800,7 +1799,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: Friction
@@ -1868,7 +1867,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 3
+      m_SerializableObject: 1.5
     m_Space: 2147483647
   m_Property:
     name: Lifetime
@@ -2763,7 +2762,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-2.0,"y":5.0,"z":-2.0}}'
+      m_SerializableObject: '{"vector":{"x":-1.0,"y":3.0,"z":-1.0}}'
     m_Space: 0
   m_Property:
     name: A
@@ -2933,7 +2932,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":2.0,"y":10.0,"z":2.0}}'
+      m_SerializableObject: '{"vector":{"x":1.0,"y":5.0,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: B
@@ -3129,7 +3128,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 3
+      m_SerializableObject: 1.5
     m_Space: 2147483647
   m_Property:
     name: Lifetime
@@ -3456,7 +3455,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614699}
   - {fileID: 8926484042661614705}
   - {fileID: 8926484042661614718}
-  m_UIPosition: {x: 1579, y: 884}
+  m_UIPosition: {x: 1579, y: 944}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -3723,7 +3722,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Plane, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.0,"y":0.0,"z":0.0},"normal":{"x":0.0,"y":1.0,"z":0.0}}'
+      m_SerializableObject: '{"position":{"x":0.0,"y":-1.0,"z":0.0},"normal":{"x":0.0,"y":1.0,"z":0.0}}'
     m_Space: 0
   m_Property:
     name: Plane
@@ -4027,7 +4026,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: Bounce
@@ -4061,7 +4060,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: Friction
@@ -4283,7 +4282,6 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614727}
-  - {fileID: 8926484042661614847}
   m_UIPosition: {x: 1579, y: 1413}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
@@ -4441,7 +4439,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.05
+      m_SerializableObject: 0.2
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -4873,7 +4871,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-2.0,"y":5.0,"z":-2.0}}'
+      m_SerializableObject: '{"vector":{"x":-1.0,"y":3.0,"z":-1.0}}'
     m_Space: 0
   m_Property:
     name: A
@@ -5043,7 +5041,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":2.0,"y":10.0,"z":2.0}}'
+      m_SerializableObject: '{"vector":{"x":1.0,"y":5.0,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: B
@@ -5239,7 +5237,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 3
+      m_SerializableObject: 1.5
     m_Space: 2147483647
   m_Property:
     name: Lifetime
@@ -5566,7 +5564,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614771}
   - {fileID: 8926484042661614777}
   - {fileID: 8926484042661614790}
-  m_UIPosition: {x: 2161, y: 884}
+  m_UIPosition: {x: 2160, y: 944}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -5824,7 +5822,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614779}
   - {fileID: 8926484042661614783}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661614778}
   m_MasterData:
@@ -5833,7 +5831,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Plane, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.0,"y":0.0,"z":0.0},"normal":{"x":0.0,"y":1.0,"z":0.0}}'
+      m_SerializableObject: '{"position":{"x":0.0,"y":-1.0,"z":0.0},"normal":{"x":0.0,"y":1.0,"z":0.0}}'
     m_Space: 0
   m_Property:
     name: Plane
@@ -6137,7 +6135,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: Bounce
@@ -6171,7 +6169,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: Friction
@@ -6393,8 +6391,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614799}
-  - {fileID: 8926484042661614851}
-  m_UIPosition: {x: 2161, y: 1413}
+  m_UIPosition: {x: 2160, y: 1482}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -6551,7 +6548,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.05
+      m_SerializableObject: 0.2
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -7685,7 +7682,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661614848}
   m_OutputSlots: []
-  m_Disabled: 0
+  m_Disabled: 1
   attribute: size
   Composition: 0
   AlphaComposition: 0
@@ -7748,7 +7745,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661614852}
   m_OutputSlots: []
-  m_Disabled: 0
+  m_Disabled: 1
   attribute: size
   Composition: 0
   AlphaComposition: 0
@@ -7781,7 +7778,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.003780364990234375,"value":0.2010955810546875,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.9999847412109375,"value":0.0000152587890625,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.003780364990234375,"value":0.2010955810546875,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0083160400390626,"value":0.0566253662109375,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -7811,7 +7808,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661614854}
   m_OutputSlots: []
-  m_Disabled: 0
+  m_Disabled: 1
   attribute: size
   Composition: 0
   AlphaComposition: 0
@@ -7851,5 +7848,39 @@ MonoBehaviour:
     m_serializedType:
       m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614855}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614615}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1
+    m_Space: 2147483647
+  m_Property:
+    name: Roughness
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
   m_Direction: 0
   m_LinkedSlots: []

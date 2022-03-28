@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
     [Space(20)]
 
     [Header("Spawn Values")]
-    [SerializeField] private int _spawnAmount;
+    [SerializeField] private Vector2 _defaultSpawnAmount;
     [Range(1, 100)] 
     [SerializeField] private float _spawnRange;
     [Space(20)]
@@ -53,7 +53,9 @@ public class EnemySpawner : MonoBehaviour
     [ContextMenu("Populate")]
     public void PopulateNavmesh()
     {
-        _spawnAmount = Mathf.RoundToInt(_spawnAmount * _gameManagement._currentDifficulty);
+        //_defaultSpawnAmount = Mathf.RoundToInt(_defaultSpawnAmount * _gameManagement._currentDifficulty);
+
+        int _spawnAmount = Mathf.RoundToInt(Random.Range(_defaultSpawnAmount.x, _defaultSpawnAmount.y) * _gameManagement._currentDifficulty);
         
         foreach (GameObject enemy in _enemyTypes)
         {

@@ -1,11 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Media;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.ProBuilder.MeshOperations;
-using UnityEditor;
 
 public class EnemyAI : MonoBehaviour
 {

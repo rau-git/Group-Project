@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Undefined
   - Room
+  - GameManager
   layers:
   - Default
   - TransparentFX

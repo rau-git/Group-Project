@@ -13,10 +13,11 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
     private GameObject _camera;
 
     [SerializeField] private GameObject _deathVFX;
+    [SerializeField] private GameObject _healingPotion;
     [SerializeField] private Image _healthBar;
     [SerializeField] private GameObject _canvas;
 
-    [SerializeField] private GameManagement _gameManagement;
+    private GameManagement _gameManagement;
 
     private bool _canTakeDamage = true;
 
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
     {
         _enemyStats = GetComponent<EnemyStats>();
         _camera = GameObject.FindGameObjectWithTag("MainCamera");
+        _gameManagement = GameObject.FindWithTag("GameManager").GetComponent<GameManagement>();
 
         _enemyStats._enemyCurrentHealth = _enemyStats._enemyMaxHealth;
 
@@ -58,9 +60,14 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
 
     public void KillCharacter()
     {
+        if (Random.value >= 0.9f)
+        {
+            Instantiate(_healingPotion, transform.position - new Vector3(0, 2.5f, 0), transform.rotation);
+        }
+        
         Instantiate(_deathVFX, transform.position - new Vector3(0, 1, 0), transform.rotation);
         _gameManagement._enemiesKilled += 1;
-        _gameManagement._currencyCurrent += Mathf.RoundToInt(Random.Range(0, 10) * _gameManagement._currentDifficulty);
+        _gameManagement._currencyCurrent += Mathf.RoundToInt(Random.Range(0, 25) * _gameManagement._currentDifficulty);
         Destroy(gameObject);
     }
 

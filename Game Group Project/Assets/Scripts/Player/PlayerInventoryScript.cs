@@ -6,8 +6,8 @@ public class PlayerInventoryScript : MonoBehaviour
 {
     [Header("Referenced Scripts")]
     [SerializeField] private List<ItemObject> _healingItemInventory = new List<ItemObject>();
-    [SerializeField] private ItemObject _healingItem;
     [SerializeField] private PlayerFunctions _playerFunctions;
+    public ItemObject _healingItem;
 
     private void Awake() => _healingItemInventory.Add(_healingItem);
 
@@ -17,7 +17,6 @@ public class PlayerInventoryScript : MonoBehaviour
     {
         if (_healingItem._itemQuantity <= 0) return;
         
-        _healingItem._itemQuantity -= 1;
         _playerFunctions.HealCharacter(_healingItem._itemHealAmount);
     }
 }
