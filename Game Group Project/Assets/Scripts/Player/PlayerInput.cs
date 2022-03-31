@@ -23,6 +23,10 @@ public class PlayerInput : MonoBehaviour
         {
             _playerMovementScript.GetInput();
         }
+        if (Input.GetButtonDown("Dodge"))
+        {
+            _playerMovementScript.Dodge();
+        }
         if (Input.GetButtonDown("UseHealingItem"))
         {
             _playerHealingInventoryScript.UseItem();

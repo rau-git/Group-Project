@@ -8,7 +8,13 @@ public class PlayerStats : MonoBehaviour
     public float _playerCurrentHealth;
     public float _playerMaxHealth;
     public float _playerBaseDamage;
-    
+    public float _dodgeDistance;
+
+    [Header("Cooldowns")] 
+    public float _dodgeCooldown;
+    public float _slamCooldown;
+    public float _spinCooldown;
+
     public void UpgradeMaxHealth(float increaseValue)
     {
         _playerMaxHealth += increaseValue;
