@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
 {
     [Header("Assignables")]
     [SerializeField] private AudioSource _audioSource;
+    private EnemyAttack _enemyAttack;
     private NavMeshAgent _agent;
     private GameObject _player;
     private EnemyStats _enemyStats;
@@ -30,6 +31,7 @@ public class EnemyAI : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _enemyStats = GetComponent<EnemyStats>();
+        _enemyAttack = GetComponent<EnemyAttack>();
         _player = GameObject.FindGameObjectWithTag("Player");
     }
     
@@ -79,13 +81,19 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackToChase()
     {
+        var lookPosition = new Vector3(_player.transform.position.x, transform.position.y, _player.transform.position.z);
+
         _agent.SetDestination(transform.position);
+        transform.LookAt(lookPosition);
+        _enemyAttack._attackBool = true;
         
         if (Vector3.Distance(transform.position, _player.transform.position) > _enemyStats._enemyAttackRange)
         {
             _enemyState = States.ChaseState;
+            _enemyAttack._attackBool = false;
         }
     }
+
 
     private void RunToPlayer() => _agent.SetDestination(_player.transform.position);
 }

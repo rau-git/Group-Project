@@ -7,16 +7,22 @@ public class PlayerFunctions : MonoBehaviour, IDamage<float>, IHeal<float>, IKil
     [Header("Assignables")]
     private PlayerStats _playerStats;
     [SerializeField] private PlayerInventoryScript _playerInventoryScript;
-    
-    private void Awake() => _playerStats = GetComponent<PlayerStats>();
+    [SerializeField] private GameObject _deathUI;
+
+    private void Awake()
+    {
+        _playerStats = GetComponent<PlayerStats>();
+        _deathUI.SetActive(false);
+    }
 
     public void TakeDamage(float damageTaken)
     {
-        Mathf.Clamp(_playerStats._playerCurrentHealth -= damageTaken, 0, _playerStats._playerMaxHealth);
+        _playerStats._playerCurrentHealth -= damageTaken;
 
         if (_playerStats._playerCurrentHealth <= 0)
         {
             KillCharacter();
+            _playerStats._playerCurrentHealth = 0;
         }
     }
 
@@ -33,5 +39,5 @@ public class PlayerFunctions : MonoBehaviour, IDamage<float>, IHeal<float>, IKil
         }
     }
 
-    public void KillCharacter() => Debug.Log("Character is dead! :C");
+    public void KillCharacter() => _deathUI.SetActive(true);
 }

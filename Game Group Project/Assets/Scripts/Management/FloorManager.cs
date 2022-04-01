@@ -32,7 +32,7 @@ public class FloorManager : MonoBehaviour
         RestartLevel();
     }
 
-    private void RestartLevel()
+    public void RestartLevel()
     {
         _enemySpawner._enemyList.Clear();
         _gameManagement.IncreaseFloor();
