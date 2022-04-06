@@ -12,12 +12,14 @@ public class SkillTreeUI : MonoBehaviour
     [SerializeField] private GameObject _specialMenu;
 
     [SerializeField] private TextMeshProUGUI _dropDownReference;
+    [SerializeField] private PauseManager _pauseManager;
 
     private void Awake()
     {
+        this.gameObject.SetActive(false);
         MeleeMenuActive();
     }
-
+    
     public void SetMenu()
     {
         switch (_dropDownReference.text)
@@ -34,11 +36,6 @@ public class SkillTreeUI : MonoBehaviour
             case "Special Skills":
                 SpecialMenuActive();
                 break;
-        }
-
-        if (_dropDownReference.text == "Melee Skills")
-        {
-            
         }
     }
 

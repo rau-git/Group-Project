@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagement : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class GameManagement : MonoBehaviour
         _currencyCurrent = 0;
         _currencySpent = 0;
         _highestFloor = 0;
-
+        
         _playerStats._playerCurrentHealth = _playerStats._playerMaxHealth;
         _floorManager.RestartLevel();
     }

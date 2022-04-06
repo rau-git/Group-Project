@@ -13,6 +13,7 @@ public class PauseManager : MonoBehaviour
     [Header("Assignables")]
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _playerHUD;
+    [SerializeField] private GameObject _skillMenu;
 
     private void Awake()
     {
@@ -27,9 +28,18 @@ public class PauseManager : MonoBehaviour
             SwitchPauseBool();
             _pauseMenu.SetActive(_pauseBool);
         }
+        if (Input.GetButtonDown("ToggleSkillMenu"))
+        {
+            ToggleSkillMenu();
+        }
     }
-
-    [ContextMenu("Pause")]
+    
+    public void ToggleSkillMenu()
+    {
+        SwitchPauseBool();
+        _skillMenu.SetActive(!_skillMenu.activeInHierarchy);
+    }
+    
     public void SwitchPauseBool()
     {
         _pauseBool = !_pauseBool;

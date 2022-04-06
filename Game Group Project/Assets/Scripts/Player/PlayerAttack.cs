@@ -51,19 +51,19 @@ public class PlayerAttack : MonoBehaviour
         PlayerLookToAttack();
         _animator.SetBool("slamAttack", true);
     }
-
-    private void SlamAttackColliderActivate() => _slamAttackCollider.SetActive(true);
-
-    private void SlamAttackColliderDeactivate() => _slamAttackCollider.SetActive(false);
-
-    private void SpinAttackColliderActivate() => _spinAttackCollider.SetActive(true);
-
-    private void SpinAttackColliderDeactivate() => _spinAttackCollider.SetActive(false);
-
+    
     private void BasicAttackColliderActivate() => _basicAttackCollider.SetActive(true);
 
     private void BasicAttackColliderDeactivate() => _basicAttackCollider.SetActive(false);
+    
+    private void SpinAttackColliderActivate() => _spinAttackCollider.SetActive(true);
+    
+    private void SpinAttackColliderDeactivate() => _spinAttackCollider.SetActive(false);
+    
+    private void SlamAttackColliderActivate() => _slamAttackCollider.SetActive(true);
 
+    private void SlamAttackColliderDeactivate() => _slamAttackCollider.SetActive(false);
+    
     public void StopAnimation()
     {
         _animator.SetBool("basicAttack", false);
