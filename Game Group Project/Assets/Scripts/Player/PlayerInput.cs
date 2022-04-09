@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [SelectionBase]
 public class PlayerInput : MonoBehaviour
@@ -10,19 +12,35 @@ public class PlayerInput : MonoBehaviour
     private PlayerMovement _playerMovementScript;
     private PlayerAttack _playerAttackScript;
 
+    private InputControls _inputControls;
+
     private void Awake()
     {
         _playerHealingInventoryScript = GetComponent<PlayerInventoryScript>();
         _playerMovementScript = GetComponent<PlayerMovement>();
         _playerAttackScript = GetComponent<PlayerAttack>();
+        
+        _inputControls = new InputControls();
+        _inputControls.Enable();
+    }
+
+    private void OnEnable()
+    {
+        _inputControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _inputControls.Disable();
     }
 
     private void Update()
     {
-        if (Input.GetButton("MoveCharacter"))
+        if (_inputControls.Player.MoveCharacter.IsPressed())
         {
-            _playerMovementScript.GetInput();
+            _playerMovementScript.GetInput(_inputControls.Player.MousePosition.ReadValue<Vector2>());
         }
+        /*
         if (Input.GetButtonDown("Dodge"))
         {
             _playerMovementScript.Dodge();
@@ -39,6 +57,7 @@ public class PlayerInput : MonoBehaviour
         {
             _playerAttackScript.SlamAttack();
         }
+        */
     }
         
 }

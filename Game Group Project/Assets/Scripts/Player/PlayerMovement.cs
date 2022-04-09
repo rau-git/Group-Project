@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions.Must;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -33,9 +34,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate() => MoveCharacter();
 
-    public void GetInput()
+    public void GetInput(Vector2 mousePosition)
     {
-        Ray ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = _playerCamera.ScreenPointToRay(mousePosition);
 
         if (!Physics.Raycast(ray, out var hit, 100f, _walkableLayer)) return;
 
