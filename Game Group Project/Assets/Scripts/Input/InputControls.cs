@@ -44,6 +44,42 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PrimaryAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""83165e50-e3c2-4267-b69a-3e8a08469526"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dodge"",
+                    ""type"": ""Button"",
+                    ""id"": ""0d450d3e-4cf5-488a-bcbb-17f626d1fb14"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SkillMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""42766702-4283-4ca6-aec6-f456d675c580"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""a39590ee-e191-4ebf-b3cf-49915e396ab1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +104,50 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f0489673-4839-41da-86f2-72d49a21a5dc"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21f62c9b-3111-4a61-8ece-e998732cd020"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dodge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa076e16-970b-47dc-b735-b45c304f9011"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkillMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4451a791-0512-415f-a7f5-2f3a6747e929"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +158,10 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_MoveCharacter = m_Player.FindAction("MoveCharacter", throwIfNotFound: true);
         m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
+        m_Player_PrimaryAttack = m_Player.FindAction("PrimaryAttack", throwIfNotFound: true);
+        m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
+        m_Player_SkillMenu = m_Player.FindAction("SkillMenu", throwIfNotFound: true);
+        m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -139,12 +223,20 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_MoveCharacter;
     private readonly InputAction m_Player_MousePosition;
+    private readonly InputAction m_Player_PrimaryAttack;
+    private readonly InputAction m_Player_Dodge;
+    private readonly InputAction m_Player_SkillMenu;
+    private readonly InputAction m_Player_PauseMenu;
     public struct PlayerActions
     {
         private @InputControls m_Wrapper;
         public PlayerActions(@InputControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveCharacter => m_Wrapper.m_Player_MoveCharacter;
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
+        public InputAction @PrimaryAttack => m_Wrapper.m_Player_PrimaryAttack;
+        public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
+        public InputAction @SkillMenu => m_Wrapper.m_Player_SkillMenu;
+        public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -160,6 +252,18 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @MousePosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
                 @MousePosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
                 @MousePosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
+                @PrimaryAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimaryAttack;
+                @PrimaryAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimaryAttack;
+                @PrimaryAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrimaryAttack;
+                @Dodge.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
+                @Dodge.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
+                @Dodge.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
+                @SkillMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillMenu;
+                @SkillMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillMenu;
+                @SkillMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkillMenu;
+                @PauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -170,6 +274,18 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @MousePosition.started += instance.OnMousePosition;
                 @MousePosition.performed += instance.OnMousePosition;
                 @MousePosition.canceled += instance.OnMousePosition;
+                @PrimaryAttack.started += instance.OnPrimaryAttack;
+                @PrimaryAttack.performed += instance.OnPrimaryAttack;
+                @PrimaryAttack.canceled += instance.OnPrimaryAttack;
+                @Dodge.started += instance.OnDodge;
+                @Dodge.performed += instance.OnDodge;
+                @Dodge.canceled += instance.OnDodge;
+                @SkillMenu.started += instance.OnSkillMenu;
+                @SkillMenu.performed += instance.OnSkillMenu;
+                @SkillMenu.canceled += instance.OnSkillMenu;
+                @PauseMenu.started += instance.OnPauseMenu;
+                @PauseMenu.performed += instance.OnPauseMenu;
+                @PauseMenu.canceled += instance.OnPauseMenu;
             }
         }
     }
@@ -178,5 +294,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
     {
         void OnMoveCharacter(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnPrimaryAttack(InputAction.CallbackContext context);
+        void OnDodge(InputAction.CallbackContext context);
+        void OnSkillMenu(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
 }

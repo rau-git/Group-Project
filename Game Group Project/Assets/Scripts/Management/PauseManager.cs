@@ -14,21 +14,25 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _playerHUD;
     [SerializeField] private GameObject _skillMenu;
+    private InputControls _inputControls;
 
     private void Awake()
     {
         _pauseBool = false;
         _pauseMenu.SetActive(_pauseBool);
+        
+        _inputControls = new InputControls();
+        _inputControls.Enable();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (_inputControls.Player.PauseMenu.triggered)
         {
             SwitchPauseBool();
             _pauseMenu.SetActive(_pauseBool);
         }
-        if (Input.GetButtonDown("ToggleSkillMenu"))
+        if (_inputControls.Player.SkillMenu.triggered)
         {
             ToggleSkillMenu();
         }

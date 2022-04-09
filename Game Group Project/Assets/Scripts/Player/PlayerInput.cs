@@ -40,15 +40,15 @@ public class PlayerInput : MonoBehaviour
         {
             _playerMovementScript.GetInput(_inputControls.Player.MousePosition.ReadValue<Vector2>());
         }
-        /*
-        if (Input.GetButtonDown("Dodge"))
+        if (_inputControls.Player.Dodge.triggered)
         {
             _playerMovementScript.Dodge();
         }
-        if (Input.GetButtonDown("PrimaryAttack"))
+        if (_inputControls.Player.PrimaryAttack.triggered)
         {
-            _playerAttackScript.BasicAttack();
+            _playerAttackScript.BasicAttack(_inputControls.Player.MousePosition.ReadValue<Vector2>());
         }
+        /*
         if (Input.GetButtonDown("SpinAttack"))
         {
             _playerAttackScript.SpinAttack();

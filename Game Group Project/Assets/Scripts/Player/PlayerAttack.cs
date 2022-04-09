@@ -23,9 +23,9 @@ public class PlayerAttack : MonoBehaviour
         BasicAttackColliderDeactivate();
     }
 
-    private void PlayerLookToAttack()
+    private void PlayerLookToAttack(Vector2 mousePosition)
     {
-        var ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
+        var ray = _playerCamera.ScreenPointToRay(mousePosition);
         
         Physics.Raycast(ray, out var hit);
 
@@ -35,21 +35,21 @@ public class PlayerAttack : MonoBehaviour
         transform.LookAt(lookAtPos);
     }
 
-    public void BasicAttack()
+    public void BasicAttack(Vector2 mousePosition)
     {
-        PlayerLookToAttack();
+        PlayerLookToAttack(mousePosition);
         _animator.SetBool("basicAttack", true);
     }
 
-    public void SpinAttack()
+    public void SpinAttack(Vector2 mousePosition)
     {
-        PlayerLookToAttack();
+        PlayerLookToAttack(mousePosition);
         _animator.SetBool("spinAttack", true);
     }
 
-    public void SlamAttack()
+    public void SlamAttack(Vector2 mousePosition)
     {
-        PlayerLookToAttack();
+        PlayerLookToAttack(mousePosition);
         _animator.SetBool("slamAttack", true);
     }
     
