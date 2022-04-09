@@ -24,6 +24,5 @@ public class UIHandler : MonoBehaviour
         float playerHealth = _playerStats._playerCurrentHealth / _playerStats._playerMaxHealth;
         _playerHealthbar.fillAmount = playerHealth;
         _playerHealthPercentage.text = Mathf.RoundToInt(playerHealth * 100).ToString() + "%";
-        _quantityUI.text = _itemObject._itemQuantity.ToString();
     }
 }

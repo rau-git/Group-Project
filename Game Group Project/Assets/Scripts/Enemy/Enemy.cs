@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
     private GameObject _camera;
 
     [SerializeField] private GameObject _deathVFX;
-    [SerializeField] private GameObject _healingPotion;
     [SerializeField] private Image _healthBar;
     [SerializeField] private GameObject _canvas;
 
@@ -60,14 +59,9 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
 
     public void KillCharacter()
     {
-        if (Random.value >= 0.9f)
-        {
-            Instantiate(_healingPotion, transform.position - new Vector3(0, 2.5f, 0), transform.rotation);
-        }
-        
         Instantiate(_deathVFX, transform.position - new Vector3(0, 1, 0), transform.rotation);
         _gameManagement._enemiesKilled += 1;
-        _gameManagement._currencyCurrent += Mathf.RoundToInt(Random.Range(0, 25) * _gameManagement._currentDifficulty);
+        _gameManagement._currencyCurrent += Mathf.RoundToInt(Random.Range(15, 50) * _gameManagement._currentDifficulty);
         Destroy(gameObject);
     }
 

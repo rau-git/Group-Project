@@ -37,19 +37,19 @@ public class PlayerInput : MonoBehaviour
         }
         if (Input.GetButton("Ability1"))
         {
-            _playerAttackScript.SpinAttack();
+            _playerAttackScript.Ability1();
         }
         if (Input.GetButton("Ability2"))
         {
-            _playerAttackScript.SlamAttack();
+            _playerAttackScript.Ability2();
         }
         if (Input.GetButton("Ability3"))
         {
-            
+            _playerAttackScript.Ability3();
         }
         if (Input.GetButton("Ability4"))
         {
-            
+            _playerAttackScript.Ability4();
         }
         
     }

@@ -36,7 +36,7 @@ public class GameManagement : MonoBehaviour
     public void IncreaseFloor()
     {
         _currentPlayerFloor += 1;
-        _currentDifficulty = 1 + _currentPlayerFloor * 0.1f;
+        _currentDifficulty = (1 + _currentPlayerFloor * 0.1f) + _playerStats._playerDifficulty;
     }
 
     public void RestartGame()

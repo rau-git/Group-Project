@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class SkillSciptableObject : ScriptableObject
     public bool _unlocked;
     public bool _available;
     public List<SkillSciptableObject> _dependentSkills = new List<SkillSciptableObject>();
+    public Action _abilityReference;
 
     public void SetDependentsEnabled()
     {

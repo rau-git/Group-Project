@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,12 @@ public class PlayerAttack : MonoBehaviour
     [Header("Misc Assignables")]
     [SerializeField] private Camera _playerCamera;
 
+    [Header("Actions")] 
+    private Action _ability1;
+    private Action _ability2;
+    private Action _ability3;
+    private Action _ability4;
+
     private void Awake()
     {
         SlamAttackColliderDeactivate();
@@ -24,15 +31,31 @@ public class PlayerAttack : MonoBehaviour
 
     private void PlayerLookToAttack()
     {
-        Ray ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
+        var ray = _playerCamera.ScreenPointToRay(Input.mousePosition);
         
         Physics.Raycast(ray, out var hit);
 
-        Vector3 lookAtPos = hit.point;
+        var lookAtPos = hit.point;
         lookAtPos.y = transform.position.y;
 
         transform.LookAt(lookAtPos);
     }
+
+    public void SetAbility1(Action inputAbility) => _ability1 = inputAbility;
+
+    public void SetAbility2(Action inputAbility) => _ability2 = inputAbility;
+
+    public void SetAbility3(Action inputAbility) => _ability3 = inputAbility;
+
+    public void SetAbility4(Action inputAbility) => _ability4 = inputAbility;
+
+    public void Ability1() => _ability1();
+
+    public void Ability2() => _ability2();
+
+    public void Ability3() => _ability3();
+
+    public void Ability4() => _ability4();
 
     public void BasicAttack()
     {
