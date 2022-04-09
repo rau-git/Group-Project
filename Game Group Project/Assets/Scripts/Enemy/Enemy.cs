@@ -15,7 +15,8 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
     [SerializeField] private GameObject _deathVFX;
     [SerializeField] private Image _healthBar;
     [SerializeField] private GameObject _canvas;
-
+    
+    private PlayerFunctions _playerFunctions;
     private GameManagement _gameManagement;
 
     private bool _canTakeDamage = true;
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
         _enemyStats = GetComponent<EnemyStats>();
         _camera = GameObject.FindGameObjectWithTag("MainCamera");
         _gameManagement = GameObject.FindWithTag("GameManager").GetComponent<GameManagement>();
+        _playerFunctions = GameObject.FindWithTag("Player").GetComponent<PlayerFunctions>();
 
         _enemyStats._enemyCurrentHealth = _enemyStats._enemyMaxHealth;
 
@@ -48,10 +50,15 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
 
         if (_enemyStats._enemyCurrentHealth - damageTaken <= 0)
         {
+            damageTaken = _enemyStats._enemyCurrentHealth;
             KillCharacter();
         }
-        else _enemyStats._enemyCurrentHealth -= damageTaken;
+        else
+        {
+            _enemyStats._enemyCurrentHealth -= damageTaken;
+        }
 
+        _playerFunctions.LifestealFunction(damageTaken);
         UpdateHealthBar();
 
         StartCoroutine(DamageCooldown());
