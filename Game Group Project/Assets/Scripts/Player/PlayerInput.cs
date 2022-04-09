@@ -27,30 +27,18 @@ public class PlayerInput : MonoBehaviour
         {
             _playerMovementScript.Dodge();
         }
-        if (Input.GetButtonDown("UseHealingItem"))
-        {
-            _playerHealingInventoryScript.UseItem();
-        }
-        if (Input.GetButton("PrimaryAttack"))
+        if (Input.GetButtonDown("PrimaryAttack"))
         {
             _playerAttackScript.BasicAttack();
         }
-        if (Input.GetButton("Ability1"))
+        if (Input.GetButtonDown("SpinAttack"))
         {
-            _playerAttackScript.Ability1();
+            _playerAttackScript.SpinAttack();
         }
-        if (Input.GetButton("Ability2"))
+        if (Input.GetButtonDown("SlamAttack"))
         {
-            _playerAttackScript.Ability2();
+            _playerAttackScript.SlamAttack();
         }
-        if (Input.GetButton("Ability3"))
-        {
-            _playerAttackScript.Ability3();
-        }
-        if (Input.GetButton("Ability4"))
-        {
-            _playerAttackScript.Ability4();
-        }
-        
     }
-} 
+        
+}

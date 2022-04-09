@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 [CreateAssetMenu(fileName = "New Skill", menuName = "Skill")]
 public class SkillSciptableObject : ScriptableObject
@@ -13,7 +14,8 @@ public class SkillSciptableObject : ScriptableObject
     public bool _unlocked;
     public bool _available;
     public List<SkillSciptableObject> _dependentSkills = new List<SkillSciptableObject>();
-    public Action _abilityReference;
+
+    public KeyCode _skillButton;
 
     public void SetDependentsEnabled()
     {
@@ -22,4 +24,5 @@ public class SkillSciptableObject : ScriptableObject
             dependentSkill._available = true;
         }
     }
+    
 }

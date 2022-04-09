@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec69159380d97e48a8d3dae4e768970, type: 3}
   m_Name: ProtectiveShield
   m_EditorClassIdentifier: 
-  _skillID: 2
   _skillName: Protective Shield
   _skillDescription: Summon a shield around you to protect you from incoming damage!
   _skillCost: 1250
-  _unlocked: 0
+  _unlocked: 1
   _available: 0
-  _dependencies: []
+  _dependentSkills: []

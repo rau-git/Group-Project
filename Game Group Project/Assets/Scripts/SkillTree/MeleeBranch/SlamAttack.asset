@@ -15,6 +15,6 @@ MonoBehaviour:
   _skillName: Slam Attack
   _skillDescription: You slam the ground in front of you for massive damage!
   _skillCost: 1750
-  _unlocked: 0
+  _unlocked: 1
   _available: 0
   _dependentSkills: []

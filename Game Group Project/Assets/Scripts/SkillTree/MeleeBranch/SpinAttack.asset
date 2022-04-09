@@ -16,5 +16,5 @@ MonoBehaviour:
   _skillDescription: You swiftly spin in a circle to hit all those around you!
   _skillCost: 1500
   _unlocked: 1
-  _available: 1
-  _dependencies: []
+  _available: 0
+  _dependentSkills: []
