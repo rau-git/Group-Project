@@ -19,7 +19,6 @@ public class PlayerInput : MonoBehaviour
         _playerHealingInventoryScript = GetComponent<PlayerInventoryScript>();
         _playerMovementScript = GetComponent<PlayerMovement>();
         _playerAttackScript = GetComponent<PlayerAttack>();
-        
         _inputControls = new InputControls();
         _inputControls.Enable();
     }
@@ -48,16 +47,14 @@ public class PlayerInput : MonoBehaviour
         {
             _playerAttackScript.BasicAttack(_inputControls.Player.MousePosition.ReadValue<Vector2>());
         }
-        /*
-        if (Input.GetButtonDown("SpinAttack"))
+        if (_inputControls.Player.SpinAttack.triggered)
         {
-            _playerAttackScript.SpinAttack();
+            _playerAttackScript.SpinAttack(_inputControls.Player.MousePosition.ReadValue<Vector2>());
         }
-        if (Input.GetButtonDown("SlamAttack"))
+        if (_inputControls.Player.SlamAttack.triggered)
         {
-            _playerAttackScript.SlamAttack();
+            _playerAttackScript.SlamAttack(_inputControls.Player.MousePosition.ReadValue<Vector2>());
         }
-        */
     }
         
 }

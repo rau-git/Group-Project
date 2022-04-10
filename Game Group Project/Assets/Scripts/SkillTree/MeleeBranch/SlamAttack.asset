@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bec69159380d97e48a8d3dae4e768970, type: 3}
   m_Name: SlamAttack
@@ -18,3 +18,13 @@ MonoBehaviour:
   _unlocked: 1
   _available: 0
   _dependentSkills: []
+  _inputAction:
+    m_Name: Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 610e7791-4da0-4b1e-8c4a-eb514494deb2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  _inputActionName: SlamAttack

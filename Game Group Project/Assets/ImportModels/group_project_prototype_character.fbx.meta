@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: c9800f6ee7a90bc4992646e01d7d707c
 ModelImporter:
-  serializedVersion: 21100
+  serializedVersion: 21202
   internalIDToNameTable:
   - first:
       74: -7352372234763254923
@@ -29,6 +29,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -71,14 +72,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: StopAnimation
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: b2186d7a9b28b4f4ea2d7ec8cc0e3580, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.4183267
+      - time: 0.2439081
         functionName: BasicAttackColliderActivate
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: b2186d7a9b28b4f4ea2d7ec8cc0e3580, type: 3}
@@ -87,6 +81,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.7450199
         functionName: BasicAttackColliderDeactivate
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: b2186d7a9b28b4f4ea2d7ec8cc0e3580, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: StopAnimation
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: b2186d7a9b28b4f4ea2d7ec8cc0e3580, type: 3}
         floatParameter: 0
@@ -266,6 +267,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -277,6 +279,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8

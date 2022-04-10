@@ -80,6 +80,24 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpinAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""fa0e852f-8bde-473c-875d-8462270a7ffa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SlamAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7b42c71-dabe-4133-b107-af1f9db4ce5e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -148,6 +166,28 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb1396f0-87ab-4e82-8c87-b31a26540084"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpinAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9349f2c-bb35-417a-944f-2029dd404d5b"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlamAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -162,6 +202,8 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
         m_Player_SkillMenu = m_Player.FindAction("SkillMenu", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
+        m_Player_SpinAttack = m_Player.FindAction("SpinAttack", throwIfNotFound: true);
+        m_Player_SlamAttack = m_Player.FindAction("SlamAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -227,6 +269,8 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dodge;
     private readonly InputAction m_Player_SkillMenu;
     private readonly InputAction m_Player_PauseMenu;
+    private readonly InputAction m_Player_SpinAttack;
+    private readonly InputAction m_Player_SlamAttack;
     public struct PlayerActions
     {
         private @InputControls m_Wrapper;
@@ -237,6 +281,8 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
         public InputAction @SkillMenu => m_Wrapper.m_Player_SkillMenu;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
+        public InputAction @SpinAttack => m_Wrapper.m_Player_SpinAttack;
+        public InputAction @SlamAttack => m_Wrapper.m_Player_SlamAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -264,6 +310,12 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @PauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @SpinAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpinAttack;
+                @SpinAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpinAttack;
+                @SpinAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpinAttack;
+                @SlamAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlamAttack;
+                @SlamAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlamAttack;
+                @SlamAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlamAttack;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -286,6 +338,12 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @PauseMenu.started += instance.OnPauseMenu;
                 @PauseMenu.performed += instance.OnPauseMenu;
                 @PauseMenu.canceled += instance.OnPauseMenu;
+                @SpinAttack.started += instance.OnSpinAttack;
+                @SpinAttack.performed += instance.OnSpinAttack;
+                @SpinAttack.canceled += instance.OnSpinAttack;
+                @SlamAttack.started += instance.OnSlamAttack;
+                @SlamAttack.performed += instance.OnSlamAttack;
+                @SlamAttack.canceled += instance.OnSlamAttack;
             }
         }
     }
@@ -298,5 +356,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         void OnDodge(InputAction.CallbackContext context);
         void OnSkillMenu(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
+        void OnSpinAttack(InputAction.CallbackContext context);
+        void OnSlamAttack(InputAction.CallbackContext context);
     }
 }
