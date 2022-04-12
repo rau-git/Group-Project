@@ -16,6 +16,8 @@ public class SkillSciptableObject : ScriptableObject
     public bool _available;
     public List<SkillSciptableObject> _dependentSkills = new List<SkillSciptableObject>();
 
+    public int _myIndex;
+    
     public void SetDependentsEnabled()
     {
         foreach (var dependentSkill in _dependentSkills)

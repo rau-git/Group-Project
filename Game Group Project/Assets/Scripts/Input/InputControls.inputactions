@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SpinAttack",
+                    "name": "Ability1",
                     "type": "Button",
                     "id": "fa0e852f-8bde-473c-875d-8462270a7ffa",
                     "expectedControlType": "Button",
@@ -69,9 +69,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SlamAttack",
+                    "name": "Ability2",
                     "type": "Button",
                     "id": "d7b42c71-dabe-4133-b107-af1f9db4ce5e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability3",
+                    "type": "Button",
+                    "id": "b2cd189d-ddc5-4e2a-ba11-592d730e9abe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability4",
+                    "type": "Button",
+                    "id": "366a253b-c660-42de-ad6c-711ad87ff570",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -152,7 +170,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SpinAttack",
+                    "action": "Ability1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -163,12 +181,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SlamAttack",
+                    "action": "Ability2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2acfba29-dde6-4dc5-8076-fd5b66432689",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3fc7ef6e-0e95-40f6-a93a-cc62b9397c56",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "MeleeAbilities",
+            "bindingGroup": "MeleeAbilities",
+            "devices": []
+        }
+    ]
 }

@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
     [Header("Scripts Input Controls")]
-    private PlayerInventoryScript _playerHealingInventoryScript;
     private PlayerMovement _playerMovementScript;
     private PlayerAttack _playerAttackScript;
 
@@ -16,7 +15,6 @@ public class PlayerInput : MonoBehaviour
 
     private void Awake()
     {
-        _playerHealingInventoryScript = GetComponent<PlayerInventoryScript>();
         _playerMovementScript = GetComponent<PlayerMovement>();
         _playerAttackScript = GetComponent<PlayerAttack>();
         _inputControls = new InputControls();
@@ -47,14 +45,23 @@ public class PlayerInput : MonoBehaviour
         {
             _playerAttackScript.BasicAttack(_inputControls.Player.MousePosition.ReadValue<Vector2>());
         }
-        if (_inputControls.Player.SpinAttack.triggered)
+        if (_inputControls.Player.Ability1.triggered)
         {
-            _playerAttackScript.SpinAttack(_inputControls.Player.MousePosition.ReadValue<Vector2>());
+            _playerAttackScript.Ability1(_inputControls.Player.MousePosition.ReadValue<Vector2>());
         }
-        if (_inputControls.Player.SlamAttack.triggered)
+        if (_inputControls.Player.Ability2.triggered)
         {
-            _playerAttackScript.SlamAttack(_inputControls.Player.MousePosition.ReadValue<Vector2>());
+            _playerAttackScript.Ability2(_inputControls.Player.MousePosition.ReadValue<Vector2>());
         }
+        if (_inputControls.Player.Ability3.triggered)
+        {
+            _playerAttackScript.Ability3(_inputControls.Player.MousePosition.ReadValue<Vector2>());
+        }
+        if (_inputControls.Player.Ability4.triggered)
+        {
+            _playerAttackScript.Ability4(_inputControls.Player.MousePosition.ReadValue<Vector2>());
+        }
+        
     }
         
 }

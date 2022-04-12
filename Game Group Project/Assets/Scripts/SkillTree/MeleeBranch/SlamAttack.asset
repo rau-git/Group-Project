@@ -18,13 +18,4 @@ MonoBehaviour:
   _unlocked: 1
   _available: 0
   _dependentSkills: []
-  _inputAction:
-    m_Name: Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 610e7791-4da0-4b1e-8c4a-eb514494deb2
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  _inputActionName: SlamAttack
+  _myIndex: 1

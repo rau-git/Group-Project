@@ -82,7 +82,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SpinAttack"",
+                    ""name"": ""Ability1"",
                     ""type"": ""Button"",
                     ""id"": ""fa0e852f-8bde-473c-875d-8462270a7ffa"",
                     ""expectedControlType"": ""Button"",
@@ -91,9 +91,27 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SlamAttack"",
+                    ""name"": ""Ability2"",
                     ""type"": ""Button"",
                     ""id"": ""d7b42c71-dabe-4133-b107-af1f9db4ce5e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability3"",
+                    ""type"": ""Button"",
+                    ""id"": ""b2cd189d-ddc5-4e2a-ba11-592d730e9abe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability4"",
+                    ""type"": ""Button"",
+                    ""id"": ""366a253b-c660-42de-ad6c-711ad87ff570"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -174,7 +192,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SpinAttack"",
+                    ""action"": ""Ability1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -185,14 +203,42 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SlamAttack"",
+                    ""action"": ""Ability2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2acfba29-dde6-4dc5-8076-fd5b66432689"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3fc7ef6e-0e95-40f6-a93a-cc62b9397c56"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""MeleeAbilities"",
+            ""bindingGroup"": ""MeleeAbilities"",
+            ""devices"": []
+        }
+    ]
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
@@ -202,8 +248,10 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
         m_Player_SkillMenu = m_Player.FindAction("SkillMenu", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
-        m_Player_SpinAttack = m_Player.FindAction("SpinAttack", throwIfNotFound: true);
-        m_Player_SlamAttack = m_Player.FindAction("SlamAttack", throwIfNotFound: true);
+        m_Player_Ability1 = m_Player.FindAction("Ability1", throwIfNotFound: true);
+        m_Player_Ability2 = m_Player.FindAction("Ability2", throwIfNotFound: true);
+        m_Player_Ability3 = m_Player.FindAction("Ability3", throwIfNotFound: true);
+        m_Player_Ability4 = m_Player.FindAction("Ability4", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -269,8 +317,10 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dodge;
     private readonly InputAction m_Player_SkillMenu;
     private readonly InputAction m_Player_PauseMenu;
-    private readonly InputAction m_Player_SpinAttack;
-    private readonly InputAction m_Player_SlamAttack;
+    private readonly InputAction m_Player_Ability1;
+    private readonly InputAction m_Player_Ability2;
+    private readonly InputAction m_Player_Ability3;
+    private readonly InputAction m_Player_Ability4;
     public struct PlayerActions
     {
         private @InputControls m_Wrapper;
@@ -281,8 +331,10 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
         public InputAction @SkillMenu => m_Wrapper.m_Player_SkillMenu;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
-        public InputAction @SpinAttack => m_Wrapper.m_Player_SpinAttack;
-        public InputAction @SlamAttack => m_Wrapper.m_Player_SlamAttack;
+        public InputAction @Ability1 => m_Wrapper.m_Player_Ability1;
+        public InputAction @Ability2 => m_Wrapper.m_Player_Ability2;
+        public InputAction @Ability3 => m_Wrapper.m_Player_Ability3;
+        public InputAction @Ability4 => m_Wrapper.m_Player_Ability4;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -310,12 +362,18 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @PauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
-                @SpinAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpinAttack;
-                @SpinAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpinAttack;
-                @SpinAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpinAttack;
-                @SlamAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlamAttack;
-                @SlamAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlamAttack;
-                @SlamAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlamAttack;
+                @Ability1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility1;
+                @Ability1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility1;
+                @Ability1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility1;
+                @Ability2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
+                @Ability2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
+                @Ability2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility2;
+                @Ability3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility3;
+                @Ability3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility3;
+                @Ability3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility3;
+                @Ability4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility4;
+                @Ability4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility4;
+                @Ability4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAbility4;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -338,16 +396,31 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @PauseMenu.started += instance.OnPauseMenu;
                 @PauseMenu.performed += instance.OnPauseMenu;
                 @PauseMenu.canceled += instance.OnPauseMenu;
-                @SpinAttack.started += instance.OnSpinAttack;
-                @SpinAttack.performed += instance.OnSpinAttack;
-                @SpinAttack.canceled += instance.OnSpinAttack;
-                @SlamAttack.started += instance.OnSlamAttack;
-                @SlamAttack.performed += instance.OnSlamAttack;
-                @SlamAttack.canceled += instance.OnSlamAttack;
+                @Ability1.started += instance.OnAbility1;
+                @Ability1.performed += instance.OnAbility1;
+                @Ability1.canceled += instance.OnAbility1;
+                @Ability2.started += instance.OnAbility2;
+                @Ability2.performed += instance.OnAbility2;
+                @Ability2.canceled += instance.OnAbility2;
+                @Ability3.started += instance.OnAbility3;
+                @Ability3.performed += instance.OnAbility3;
+                @Ability3.canceled += instance.OnAbility3;
+                @Ability4.started += instance.OnAbility4;
+                @Ability4.performed += instance.OnAbility4;
+                @Ability4.canceled += instance.OnAbility4;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+    private int m_MeleeAbilitiesSchemeIndex = -1;
+    public InputControlScheme MeleeAbilitiesScheme
+    {
+        get
+        {
+            if (m_MeleeAbilitiesSchemeIndex == -1) m_MeleeAbilitiesSchemeIndex = asset.FindControlSchemeIndex("MeleeAbilities");
+            return asset.controlSchemes[m_MeleeAbilitiesSchemeIndex];
+        }
+    }
     public interface IPlayerActions
     {
         void OnMoveCharacter(InputAction.CallbackContext context);
@@ -356,7 +429,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         void OnDodge(InputAction.CallbackContext context);
         void OnSkillMenu(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
-        void OnSpinAttack(InputAction.CallbackContext context);
-        void OnSlamAttack(InputAction.CallbackContext context);
+        void OnAbility1(InputAction.CallbackContext context);
+        void OnAbility2(InputAction.CallbackContext context);
+        void OnAbility3(InputAction.CallbackContext context);
+        void OnAbility4(InputAction.CallbackContext context);
     }
 }

@@ -15,11 +15,12 @@ public class ProjectileScript : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _playerFunctions = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerFunctions>();
+        Destroy(gameObject, 3f);
     }
 
     private void Start()
     {
-        _rigidbody.AddForce(transform.forward * 200);
+        _rigidbody.AddForce(transform.forward * 400);
     }
 
     private void OnTriggerEnter(Collider other)

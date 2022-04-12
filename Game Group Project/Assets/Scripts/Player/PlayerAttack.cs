@@ -15,6 +15,12 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("Misc Assignables")]
     [SerializeField] private Camera _playerCamera;
+    [SerializeField] private List<BaseSkillUsage> _skillList = new List<BaseSkillUsage>();
+
+    public int _ability1AssignedAbilityIndex;
+    public int _ability2AssignedAbilityIndex;
+    public int _ability3AssignedAbilityIndex;
+    public int _ability4AssignedAbilityIndex;
     
     private void Awake()
     {
@@ -41,6 +47,30 @@ public class PlayerAttack : MonoBehaviour
         _animator.SetBool("basicAttack", true);
     }
 
+    public void Ability1(Vector2 mousePosition)
+    {
+        PlayerLookToAttack(mousePosition);
+        _skillList[_ability1AssignedAbilityIndex].UseAbility();
+    }
+    
+    public void Ability2(Vector2 mousePosition)
+    {
+        PlayerLookToAttack(mousePosition);
+        _skillList[_ability2AssignedAbilityIndex].UseAbility();
+    }
+    
+    public void Ability3(Vector2 mousePosition)
+    {
+        PlayerLookToAttack(mousePosition);
+        _skillList[_ability3AssignedAbilityIndex].UseAbility();
+    }
+    
+    public void Ability4(Vector2 mousePosition)
+    {
+        PlayerLookToAttack(mousePosition);
+        _skillList[_ability4AssignedAbilityIndex].UseAbility();
+    }
+    
     public void SpinAttack(Vector2 mousePosition)
     {
         PlayerLookToAttack(mousePosition);
