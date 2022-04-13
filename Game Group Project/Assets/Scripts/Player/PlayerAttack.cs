@@ -49,24 +49,32 @@ public class PlayerAttack : MonoBehaviour
 
     public void Ability1(Vector2 mousePosition)
     {
+        if(_ability1AssignedAbilityIndex + 1 > _skillList.Count) return;
+        
         PlayerLookToAttack(mousePosition);
         _skillList[_ability1AssignedAbilityIndex].UseAbility();
     }
     
     public void Ability2(Vector2 mousePosition)
     {
+        if(_ability2AssignedAbilityIndex + 1 > _skillList.Count) return;
+        
         PlayerLookToAttack(mousePosition);
         _skillList[_ability2AssignedAbilityIndex].UseAbility();
     }
     
     public void Ability3(Vector2 mousePosition)
     {
+        if(_ability3AssignedAbilityIndex + 1 > _skillList.Count) return;
+        
         PlayerLookToAttack(mousePosition);
         _skillList[_ability3AssignedAbilityIndex].UseAbility();
     }
     
     public void Ability4(Vector2 mousePosition)
     {
+        if(_ability4AssignedAbilityIndex + 1 > _skillList.Count) return;
+    
         PlayerLookToAttack(mousePosition);
         _skillList[_ability4AssignedAbilityIndex].UseAbility();
     }
