@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerFunctions : MonoBehaviour, IDamage<float>, IHeal<float>, IKill
 {
@@ -8,11 +9,17 @@ public class PlayerFunctions : MonoBehaviour, IDamage<float>, IHeal<float>, IKil
     private PlayerStats _playerStats;
     [SerializeField] private PlayerInventoryScript _playerInventoryScript;
     [SerializeField] private GameObject _deathUI;
+    [SerializeField] private Image _healthBar;
 
     private void Awake()
     {
         _playerStats = GetComponent<PlayerStats>();
         _deathUI.SetActive(false);
+    }
+
+    private void Start()
+    {
+        _healthBar.fillAmount = _playerStats._playerCurrentHealth / _playerStats._playerMaxHealth;
     }
 
     public void TakeDamage(float damageTaken)
@@ -24,6 +31,8 @@ public class PlayerFunctions : MonoBehaviour, IDamage<float>, IHeal<float>, IKil
             KillCharacter();
             _playerStats._playerCurrentHealth = 0;
         }
+        
+        _healthBar.fillAmount = _playerStats._playerCurrentHealth / _playerStats._playerMaxHealth;
     }
 
     public void HealCharacter(float healAmount)
@@ -37,6 +46,8 @@ public class PlayerFunctions : MonoBehaviour, IDamage<float>, IHeal<float>, IKil
         {
             _playerStats._playerCurrentHealth = _playerStats._playerMaxHealth;
         }
+
+        _healthBar.fillAmount = _playerStats._playerMaxHealth / _playerStats._playerCurrentHealth;
     }
 
     public void LifestealFunction(float damageInput)
@@ -49,6 +60,8 @@ public class PlayerFunctions : MonoBehaviour, IDamage<float>, IHeal<float>, IKil
         {
             _playerStats._playerCurrentHealth = _playerStats._playerMaxHealth;
         }
+        
+        _healthBar.fillAmount = _playerStats._playerMaxHealth / _playerStats._playerCurrentHealth;
     }
 
     public void KillCharacter() => _deathUI.SetActive(true);

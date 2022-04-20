@@ -9,9 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Animator _animator;
 
     [Header("Attack Collider Assignables")]
-    [SerializeField] private GameObject _slamAttackCollider;
-    [SerializeField] private GameObject _spinAttackCollider;
-    [SerializeField] private GameObject _basicAttackCollider;
+    [SerializeField] private GameObject _swordCollider;
 
     [Header("Misc Assignables")]
     [SerializeField] private Camera _playerCamera;
@@ -24,9 +22,17 @@ public class PlayerAttack : MonoBehaviour
     
     private void Awake()
     {
-        SlamAttackColliderDeactivate();
-        SpinAttackColliderDeactivate();
-        BasicAttackColliderDeactivate();
+        
+    }
+
+    private void Start()
+    {
+        SwordColliderDeactivate();
+
+        _ability1AssignedAbilityIndex = 0;
+        _ability2AssignedAbilityIndex = 1;
+        _ability3AssignedAbilityIndex = 2;
+        _ability4AssignedAbilityIndex = 3;
     }
 
     private void PlayerLookToAttack(Vector2 mousePosition)
@@ -78,35 +84,15 @@ public class PlayerAttack : MonoBehaviour
         PlayerLookToAttack(mousePosition);
         _skillList[_ability4AssignedAbilityIndex].UseAbility();
     }
-    
-    public void SpinAttack(Vector2 mousePosition)
-    {
-        PlayerLookToAttack(mousePosition);
-        _animator.SetBool("spinAttack", true);
-    }
 
-    public void SlamAttack(Vector2 mousePosition)
-    {
-        PlayerLookToAttack(mousePosition);
-        _animator.SetBool("slamAttack", true);
-    }
+    private void SwordColliderActivate() => _swordCollider.SetActive(true);
     
-    private void BasicAttackColliderActivate() => _basicAttackCollider.SetActive(true);
-
-    private void BasicAttackColliderDeactivate() => _basicAttackCollider.SetActive(false);
-    
-    private void SpinAttackColliderActivate() => _spinAttackCollider.SetActive(true);
-    
-    private void SpinAttackColliderDeactivate() => _spinAttackCollider.SetActive(false);
-    
-    private void SlamAttackColliderActivate() => _slamAttackCollider.SetActive(true);
-
-    private void SlamAttackColliderDeactivate() => _slamAttackCollider.SetActive(false);
+    private void SwordColliderDeactivate() => _swordCollider.SetActive(false);
     
     public void StopAnimation()
     {
         _animator.SetBool("basicAttack", false);
-        _animator.SetBool("spinAttack", false);
-        _animator.SetBool("slamAttack", false);
+        _animator.SetBool("samuraiAttack", false);
+        _animator.SetBool("sliceAttack", false);
     }
 }
