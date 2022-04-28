@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
     private IEnumerator DamageCooldown()
     {
         _canTakeDamage = false;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.05f);
         _canTakeDamage = true;
     }
 }
