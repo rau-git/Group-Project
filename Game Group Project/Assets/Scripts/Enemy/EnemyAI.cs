@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     [Header("Assignables")]
-    [SerializeField] private AudioSource _audioSource;
     private EnemyAttack _enemyAttack;
     private NavMeshAgent _agent;
     private GameObject _player;
@@ -60,7 +59,6 @@ public class EnemyAI : MonoBehaviour
         if (Vector3.Distance(transform.position, _player.transform.position) < _enemyStats._enemyVisionRange)
         {
             _enemyState = States.ChaseState;
-            _audioSource.Play();
         }
     }
 

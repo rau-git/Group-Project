@@ -10,12 +10,8 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
     [Header("Assignables")]
     private EnemyStats _enemyStats;
 
-    private GameObject _camera;
-
     [SerializeField] private GameObject _deathVFX;
-    [SerializeField] private Image _healthBar;
-    [SerializeField] private GameObject _canvas;
-    
+
     private PlayerFunctions _playerFunctions;
     private GameManagement _gameManagement;
 
@@ -24,13 +20,10 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
     private void Awake()
     {
         _enemyStats = GetComponent<EnemyStats>();
-        _camera = GameObject.FindGameObjectWithTag("MainCamera");
         _gameManagement = GameObject.FindWithTag("GameManager").GetComponent<GameManagement>();
         _playerFunctions = GameObject.FindWithTag("Player").GetComponent<PlayerFunctions>();
 
         _enemyStats._enemyCurrentHealth = _enemyStats._enemyMaxHealth;
-
-        _canvas.SetActive(false);
     }
 
     private void Start()
@@ -40,13 +33,9 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
         _enemyStats._enemyCurrentHealth = _enemyStats._enemyMaxHealth;
     }
 
-    private void Update() => _canvas.transform.LookAt(_camera.transform.position);
-
     public void TakeDamage(float damageTaken)
     {
         if (!_canTakeDamage) return;
-        
-        _canvas.SetActive(true);
 
         if (_enemyStats._enemyCurrentHealth - damageTaken <= 0)
         {
@@ -59,20 +48,21 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
         }
 
         _playerFunctions.LifestealFunction(damageTaken);
-        UpdateHealthBar();
 
         StartCoroutine(DamageCooldown());
     }
 
     public void KillCharacter()
     {
-        Instantiate(_deathVFX, transform.position - new Vector3(0, 1, 0), transform.rotation);
+        if (_deathVFX)
+        {
+            Instantiate(_deathVFX, transform.position - new Vector3(0, 1, 0), transform.rotation);
+        }
+
         _gameManagement._enemiesKilled += 1;
         _gameManagement._currencyCurrent += Mathf.RoundToInt(Random.Range(15, 50) * _gameManagement._currentDifficulty);
         Destroy(gameObject);
     }
-
-    private void UpdateHealthBar() => _healthBar.fillAmount = _enemyStats._enemyCurrentHealth / _enemyStats._enemyMaxHealth;
 
     private IEnumerator DamageCooldown()
     {
