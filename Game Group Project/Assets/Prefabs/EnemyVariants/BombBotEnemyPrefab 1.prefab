@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5484098418040605383}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.196, z: -0.108}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00082000013, y: 0.01958, z: -0.00003}
+  m_LocalScale: {x: 0.01, y: 0.010000002, z: 0.010000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5484098419093506021}
-  m_RootOrder: 1
+  m_Father: {fileID: 1676870240615058095}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!2083052967 &5484098418040605402
 VisualEffect:
@@ -146,7 +146,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5445369862308641117}
-  - {fileID: 5484098418040605380}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -162,7 +161,7 @@ NavMeshAgent:
   m_Radius: 1.25
   m_Speed: 16
   m_Acceleration: 50
-  avoidancePriority: 50
+  avoidancePriority: 99
   m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -315,6 +314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48bf7b06025bce847bf8340a5b0c9de7, type: 3}
+--- !u!4 &1676870240615058095 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2639638324218457063, guid: 48bf7b06025bce847bf8340a5b0c9de7, type: 3}
+  m_PrefabInstance: {fileID: 5484098418017787574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5445369862308641117 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 48bf7b06025bce847bf8340a5b0c9de7, type: 3}
