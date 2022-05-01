@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent _agent;
     private GameObject _player;
     private EnemyStats _enemyStats;
+    private Animator _animator;
 
     private enum States
     {
@@ -32,6 +33,11 @@ public class EnemyAI : MonoBehaviour
         _enemyStats = GetComponent<EnemyStats>();
         _enemyAttack = GetComponent<EnemyAttack>();
         _player = GameObject.FindGameObjectWithTag("Player");
+        
+        if (GetComponent<Animator>() != null)
+        {
+            _animator = GetComponent<Animator>();
+        }
     }
     
     private void Start() => _enemyState = States.IdleState;
@@ -56,6 +62,12 @@ public class EnemyAI : MonoBehaviour
 
     private void IdleToChase()
     {
+        if (_animator)
+        {
+            DisableAllAnimations();
+            _animator.SetBool("idleAnimBool",true);
+        }
+
         if (Vector3.Distance(transform.position, _player.transform.position) < _enemyStats._enemyVisionRange)
         {
             _enemyState = States.ChaseState;
@@ -65,6 +77,11 @@ public class EnemyAI : MonoBehaviour
     private void ChaseToAttackOrIdle()
     {
         RunToPlayer();
+        if (_animator)
+        {
+            DisableAllAnimations();
+            _animator.SetBool("moveAnimBool", true);
+        }
 
         if (Vector3.Distance(transform.position, _player.transform.position) < _enemyStats._enemyAttackRange)
         {
@@ -85,6 +102,12 @@ public class EnemyAI : MonoBehaviour
         transform.LookAt(lookPosition);
         _enemyAttack._attackBool = true;
         
+        if (_animator)
+        {
+            DisableAllAnimations();
+            _animator.SetBool("attackAnimBool", true);
+        }
+        
         if (Vector3.Distance(transform.position, _player.transform.position) > _enemyStats._enemyAttackRange)
         {
             _enemyState = States.ChaseState;
@@ -92,6 +115,12 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    private void DisableAllAnimations()
+    {
+        _animator.SetBool("idleAnimBool", false);
+        _animator.SetBool("moveAnimBool", false);
+        _animator.SetBool("attackAnimBool", false);
+    }
 
     private void RunToPlayer() => _agent.SetDestination(_player.transform.position);
 }
