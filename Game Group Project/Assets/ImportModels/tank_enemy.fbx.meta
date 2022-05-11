@@ -15,6 +15,12 @@ ModelImporter:
   - first:
       74: 8469038361199828435
     second: Armature|Moving
+  - first:
+      74: -6150085750746416694
+    second: Armature|Moving.001
+  - first:
+      74: -8772125725103586231
+    second: Armature|Moving.002
   externalObjects:
   - first:
       type: UnityEngine:Material

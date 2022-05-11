@@ -15,14 +15,20 @@ public class BoomDamageScript : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 0.25f);
+        Destroy(gameObject, 1f);
     }
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _playerFunctions.TakeDamage(_enemyStats._enemyBaseDamage);
+            StartCoroutine(DelayExplosion());
         }
+    }
+
+    private IEnumerator DelayExplosion()
+    {
+        yield return new WaitForSeconds(0.25f);
+        _playerFunctions.TakeDamage(_enemyStats._enemyBaseDamage);
     }
 }

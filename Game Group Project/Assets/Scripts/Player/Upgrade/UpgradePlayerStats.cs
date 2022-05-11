@@ -44,7 +44,7 @@ public class UpgradePlayerStats : MonoBehaviour
 
     public void UpgradeLifesteal()
     {
-        if (_gameManagement._currencyCurrent < _damageUpgradeCost) return;
+        if (_gameManagement._currencyCurrent < _lifestealUpgradeCost) return;
 
         _playerStats._playerLifesteal += _lifestealUpgradeAmount;
         _gameManagement._currencyCurrent -= _lifestealUpgradeCost;
@@ -53,7 +53,7 @@ public class UpgradePlayerStats : MonoBehaviour
     
     public void UpgradeDifficulty()
     {
-        if (_gameManagement._currencyCurrent < _damageUpgradeCost) return;
+        if (_gameManagement._currencyCurrent < _difficultyUpgradeCost) return;
 
         _playerStats._playerDifficulty += _difficultyUpgradeAmount;
         _gameManagement._currencyCurrent -= _difficultyUpgradeCost;

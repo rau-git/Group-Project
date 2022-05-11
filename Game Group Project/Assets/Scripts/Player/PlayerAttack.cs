@@ -56,33 +56,45 @@ public class PlayerAttack : MonoBehaviour
     public void Ability1(Vector2 mousePosition)
     {
         if(_ability1AssignedAbilityIndex + 1 > _skillList.Count) return;
+
+        if (_skillList[_ability1AssignedAbilityIndex]._onCooldown) return;
         
         PlayerLookToAttack(mousePosition);
         _skillList[_ability1AssignedAbilityIndex].UseAbility();
+        StartCoroutine(AbilityCooldown(_ability1AssignedAbilityIndex, _skillList[_ability1AssignedAbilityIndex]._cooldownLength));
     }
     
     public void Ability2(Vector2 mousePosition)
     {
         if(_ability2AssignedAbilityIndex + 1 > _skillList.Count) return;
         
+        if (_skillList[_ability2AssignedAbilityIndex]._onCooldown) return;
+        
         PlayerLookToAttack(mousePosition);
         _skillList[_ability2AssignedAbilityIndex].UseAbility();
+        StartCoroutine(AbilityCooldown(_ability2AssignedAbilityIndex, _skillList[_ability2AssignedAbilityIndex]._cooldownLength));
     }
     
     public void Ability3(Vector2 mousePosition)
     {
         if(_ability3AssignedAbilityIndex + 1 > _skillList.Count) return;
         
+        if (_skillList[_ability3AssignedAbilityIndex]._onCooldown) return;
+        
         PlayerLookToAttack(mousePosition);
         _skillList[_ability3AssignedAbilityIndex].UseAbility();
+        StartCoroutine(AbilityCooldown(_ability3AssignedAbilityIndex, _skillList[_ability3AssignedAbilityIndex]._cooldownLength));
     }
     
     public void Ability4(Vector2 mousePosition)
     {
         if(_ability4AssignedAbilityIndex + 1 > _skillList.Count) return;
+        
+        if (_skillList[_ability4AssignedAbilityIndex]._onCooldown) return;
     
         PlayerLookToAttack(mousePosition);
         _skillList[_ability4AssignedAbilityIndex].UseAbility();
+        StartCoroutine(AbilityCooldown(_ability4AssignedAbilityIndex, _skillList[_ability4AssignedAbilityIndex]._cooldownLength));
     }
 
     private void SwordColliderActivate() => _swordCollider.SetActive(true);
@@ -94,5 +106,13 @@ public class PlayerAttack : MonoBehaviour
         _animator.SetBool("basicAttack", false);
         _animator.SetBool("samuraiAttack", false);
         _animator.SetBool("sliceAttack", false);
+        _animator.SetBool("shotgunAttack", false);
+    }
+
+    private IEnumerator AbilityCooldown(int indexOfAttack, float cooldownLength)
+    {
+        _skillList[indexOfAttack]._onCooldown = true;
+        yield return new WaitForSeconds(cooldownLength);
+        _skillList[indexOfAttack]._onCooldown = false;
     }
 }

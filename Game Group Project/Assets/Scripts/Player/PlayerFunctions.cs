@@ -47,21 +47,21 @@ public class PlayerFunctions : MonoBehaviour, IDamage<float>, IHeal<float>, IKil
             _playerStats._playerCurrentHealth = _playerStats._playerMaxHealth;
         }
 
-        _healthBar.fillAmount = _playerStats._playerMaxHealth / _playerStats._playerCurrentHealth;
+        _healthBar.fillAmount = _playerStats._playerCurrentHealth / _playerStats._playerMaxHealth;
     }
 
     public void LifestealFunction(float damageInput)
     {
         if(_playerStats._playerCurrentHealth >= _playerStats._playerMaxHealth) return;
         
-        _playerStats._playerCurrentHealth += damageInput * (_playerStats._playerLifesteal / 100);
+        _playerStats._playerCurrentHealth += (damageInput * (_playerStats._playerLifesteal / 100));
 
         if (_playerStats._playerCurrentHealth > _playerStats._playerMaxHealth)
         {
             _playerStats._playerCurrentHealth = _playerStats._playerMaxHealth;
         }
         
-        _healthBar.fillAmount = _playerStats._playerMaxHealth / _playerStats._playerCurrentHealth;
+        _healthBar.fillAmount = _playerStats._playerCurrentHealth / _playerStats._playerMaxHealth;
     }
 
     public void KillCharacter() => _deathUI.SetActive(true);

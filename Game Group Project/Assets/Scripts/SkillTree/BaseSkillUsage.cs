@@ -8,6 +8,8 @@ public class BaseSkillUsage : MonoBehaviour
     public Animator _animator;
     public string _animationStringName;
     public float _activeGameObjectAttackLength;
+    public float _cooldownLength;
+    public bool _onCooldown;
 
     public enum AttackTypes
     {
@@ -19,6 +21,8 @@ public class BaseSkillUsage : MonoBehaviour
 
     private void Start()
     {
+        _onCooldown = false;
+        
         if (_attackTypes == AttackTypes.ActiveGameObjectAttack)
         {
             gameObject.SetActive(false);

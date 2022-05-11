@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
         if (_enemyStats._enemyCurrentHealth - damageTaken <= 0)
         {
             damageTaken = _enemyStats._enemyCurrentHealth;
+            _playerFunctions.LifestealFunction(damageTaken);
             KillCharacter();
         }
         else

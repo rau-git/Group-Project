@@ -51,12 +51,13 @@ public class EnemyAttack : MonoBehaviour
     private IEnumerator FlameAttack()
     {
         _isAttacking = true;
+        yield return new WaitForSeconds(2f);
         _flameVFX.Play();
         _flameAttackCollider.SetActive(true);
         yield return new WaitForSeconds(1f);
         _flameVFX.Stop();
         _flameAttackCollider.SetActive(false);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         _isAttacking = false;
     }
 

@@ -8,6 +8,7 @@ public class GameManagement : MonoBehaviour
     [Header("Assignables")] 
     [SerializeField] private FloorManager _floorManager;
     [SerializeField] private PlayerStats _playerStats;
+    [SerializeField] private PlayerFunctions _playerFunctions;
     
     [Header("Current Game Tracking Variables")]
     public int _currentPlayerFloor;
@@ -46,11 +47,11 @@ public class GameManagement : MonoBehaviour
         _enemiesKilled = 0;
         _bossesKilled = 0;
         _currencyGatheredTotal = 0;
-        _currencyCurrent = 0;
+        _currencyCurrent = Mathf.RoundToInt(_currencyCurrent * 0.5f);
         _currencySpent = 0;
         _highestFloor = 0;
         
-        _playerStats._playerCurrentHealth = _playerStats._playerMaxHealth;
+        _playerFunctions.HealCharacter(_playerStats._playerMaxHealth);
         _floorManager.RestartLevel();
     }
 }

@@ -52,8 +52,6 @@ public class EnemySpawner : MonoBehaviour
     [ContextMenu("Populate")]
     public void PopulateNavmesh()
     {
-        //_defaultSpawnAmount = Mathf.RoundToInt(_defaultSpawnAmount * _gameManagement._currentDifficulty);
-
         int _spawnAmount = Mathf.RoundToInt(Random.Range(_defaultSpawnAmount.x, _defaultSpawnAmount.y) * _gameManagement._currentDifficulty);
         
         foreach (GameObject enemy in _enemyTypes)
