@@ -17,7 +17,6 @@ public class SkillTreeUI : MonoBehaviour
     private void Awake()
     {
         this.gameObject.SetActive(false);
-        MeleeMenuActive();
     }
     
     public void SetMenu()

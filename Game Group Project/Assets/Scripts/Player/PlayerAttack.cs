@@ -112,6 +112,7 @@ public class PlayerAttack : MonoBehaviour
     private IEnumerator AbilityCooldown(int indexOfAttack, float cooldownLength)
     {
         _skillList[indexOfAttack]._onCooldown = true;
+        _skillList[indexOfAttack]._myCooldownIndicator.fillAmount = 1.0f;
         yield return new WaitForSeconds(cooldownLength);
         _skillList[indexOfAttack]._onCooldown = false;
     }

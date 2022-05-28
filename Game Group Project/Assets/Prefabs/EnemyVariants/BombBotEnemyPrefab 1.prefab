@@ -162,7 +162,7 @@ NavMeshAgent:
   m_Radius: 1.25
   m_Speed: 16
   m_Acceleration: 50
-  avoidancePriority: 2
+  avoidancePriority: 10
   m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathVFX: {fileID: 0}
+  _coinDropRange: {x: 10, y: 25}
 --- !u!114 &2077071589950550040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +261,12 @@ MonoBehaviour:
   _flameVFX: {fileID: 0}
   _flameAttackCollider: {fileID: 0}
   _explosion: {fileID: 3917672120708939742, guid: 5e06c2dedee23854c9f52fe1ecf40879, type: 3}
+  _explosionSource: {fileID: 0}
+  _explosionClips:
+  - {fileID: 8300000, guid: 329e707ce11c15341861944d850fc8d3, type: 3}
+  - {fileID: 8300000, guid: 00213413daab9af44ae8f7bfdef31cfc, type: 3}
+  - {fileID: 8300000, guid: 88bb7ba1beb8d074c9b7f70e1122ac31, type: 3}
+  - {fileID: 8300000, guid: 7dbf303e36410ca439abc23c7bb96629, type: 3}
   _attackBool: 0
   attacks: 2
 --- !u!95 &8970632432819398852

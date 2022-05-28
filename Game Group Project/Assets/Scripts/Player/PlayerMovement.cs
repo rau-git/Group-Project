@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator _animator;
     private NavMeshAgent _agent;
 
-    [Header("Movement Values")] [SerializeField]
+    [Header("Movement Values")]
     private Vector3 _movePosition;
 
     private void Awake()

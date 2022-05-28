@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
 
     private bool _canTakeDamage = true;
 
+    [SerializeField] private Vector2 _coinDropRange;
+
     private void Awake()
     {
         _enemyStats = GetComponent<EnemyStats>();
@@ -61,7 +63,7 @@ public class Enemy : MonoBehaviour, IDamage<float>, IKill
         }
 
         _gameManagement._enemiesKilled += 1;
-        _gameManagement._currencyCurrent += Mathf.RoundToInt(Random.Range(15, 50) * _gameManagement._currentDifficulty);
+        _gameManagement._currencyCurrent += Mathf.RoundToInt(Random.Range(_coinDropRange.x, _coinDropRange.y) * _gameManagement._currentDifficulty);
         Destroy(gameObject);
     }
 
