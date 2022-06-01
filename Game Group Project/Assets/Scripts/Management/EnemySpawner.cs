@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Spawn Values")]
     [SerializeField] private Vector2 _defaultSpawnAmount;
-    [Range(1, 100)] 
+    [Range(1, 1000)] 
     [SerializeField] private float _spawnRange;
     [Space(20)]
 
@@ -42,12 +42,9 @@ public class EnemySpawner : MonoBehaviour
     private void FixedUpdate()
     {
         RemoveNullElements();
-        CheckEnemyCount();
     }
 
     private void RemoveNullElements() => _enemyList.RemoveAll(listObject => listObject == null);
-
-    private void CheckEnemyCount() => _floorManager.SetDoorStatus(_enemyList.Count > 0);
 
     [ContextMenu("Populate")]
     public void PopulateNavmesh()

@@ -296,6 +296,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0
+        functionName: GetEnemyPosition
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 623c663e98066e643a0e9a199b3134a9, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

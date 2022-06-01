@@ -116,6 +116,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.25786164
+        functionName: BoomAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 8757ebfc09fd322498ff7cef0353d9b6, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

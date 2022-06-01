@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 955228238440942065}
   - component: {fileID: 7784139430185796060}
   - component: {fileID: 894185561385405283}
-  - component: {fileID: 7012593555092860437}
   - component: {fileID: 1468174705206326354}
   - component: {fileID: -8606166779597672041}
   - component: {fileID: 4137500593314948779}
   - component: {fileID: 313940117244915680}
+  - component: {fileID: 5760765492817327176}
   m_Layer: 0
   m_Name: TankEnemyPrefab
   m_TagString: Enemy
@@ -122,9 +122,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyCurrentHealth: 0
   _enemyMaxHealth: 500
-  _enemyBaseDamage: 1
-  _enemyVisionRange: 25
-  _enemyAttackRange: 10
+  _enemyBaseDamage: 15
+  _enemyVisionRange: 30
+  _enemyAttackRange: 20
 --- !u!114 &894185561385405283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,24 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyState: 0
---- !u!114 &7012593555092860437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359656221405745980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8757ebfc09fd322498ff7cef0353d9b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _projectile: {fileID: 3398513469701856377, guid: aee44b1928107b94da36d8a31b4bd508, type: 3}
-  _flameVFX: {fileID: 0}
-  _flameAttackCollider: {fileID: 0}
-  _explosion: {fileID: 0}
-  _attackBool: 0
-  attacks: 0
 --- !u!114 &1468174705206326354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +300,25 @@ AudioReverbZone:
   m_Density: 100
   m_LFReference: 250
   m_RoomLF: 0
+--- !u!114 &5760765492817327176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359656221405745980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8757ebfc09fd322498ff7cef0353d9b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectile: {fileID: 0}
+  _flameVFX: {fileID: 0}
+  _flameAttackCollider: {fileID: 0}
+  _explosion: {fileID: 2620149189949956755, guid: 616ad622b60325647879c5f59464a75b, type: 3}
+  _flameEnemySound: {fileID: 0}
+  _attackBool: 0
+  attacks: 2
 --- !u!1 &6043186161922874961
 GameObject:
   m_ObjectHideFlags: 0

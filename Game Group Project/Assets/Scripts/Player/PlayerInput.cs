@@ -35,7 +35,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (_inputControls.Player.MoveCharacter.IsPressed())
         {
-            _playerMovementScript.GetInput(_inputControls.Player.MousePosition.ReadValue<Vector2>());
+            _playerMovementScript.GetInput(Mouse.current.position.ReadValue());
         }
         if (_inputControls.Player.Dodge.triggered)
         {
@@ -43,23 +43,23 @@ public class PlayerInput : MonoBehaviour
         }
         if (_inputControls.Player.PrimaryAttack.triggered)
         {
-            _playerAttackScript.BasicAttack(_inputControls.Player.MousePosition.ReadValue<Vector2>());
+            _playerAttackScript.BasicAttack(Mouse.current.position.ReadValue());
         }
         if (_inputControls.Player.Ability1.triggered)
         {
-            _playerAttackScript.Ability1(_inputControls.Player.MousePosition.ReadValue<Vector2>());
+            _playerAttackScript.Ability1(Mouse.current.position.ReadValue());
         }
         if (_inputControls.Player.Ability2.triggered)
         {
-            _playerAttackScript.Ability2(_inputControls.Player.MousePosition.ReadValue<Vector2>());
+            _playerAttackScript.Ability2(Mouse.current.position.ReadValue());
         }
         if (_inputControls.Player.Ability3.triggered)
         {
-            _playerAttackScript.Ability3(_inputControls.Player.MousePosition.ReadValue<Vector2>());
+            _playerAttackScript.Ability3(Mouse.current.position.ReadValue());
         }
         if (_inputControls.Player.Ability4.triggered)
         {
-            _playerAttackScript.Ability4(_inputControls.Player.MousePosition.ReadValue<Vector2>());
+            _playerAttackScript.Ability4(Mouse.current.position.ReadValue());
         }
         
     }

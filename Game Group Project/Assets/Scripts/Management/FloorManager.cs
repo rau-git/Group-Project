@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.ProBuilder.Shapes;
 
 public class FloorManager : MonoBehaviour
 {
-    [Header("Assignables")] 
-    [SerializeField] private GameObject _exitDoor;
+    [Header("Assignables")]
     [SerializeField] private GameObject _bossSpawnLocation;
     [SerializeField] private GameObject _bossPrefab;
     [SerializeField] private GameObject _upgradeMenu;
@@ -17,13 +17,16 @@ public class FloorManager : MonoBehaviour
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private GameManagement _gameManagement;
     [SerializeField] private PauseManager _pauseManager;
-    
+
+    private DoorPath _doorPath;
+
     private Vector3 _playerSpawnPosition;
     private GameObject _player;
 
     private void Awake()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
+        _doorPath = GetComponent<DoorPath>();
     }
 
     private void Start()
@@ -36,12 +39,12 @@ public class FloorManager : MonoBehaviour
     {
         _enemySpawner._enemyList.Clear();
         _gameManagement.IncreaseFloor();
+        _doorPath.OpenPath();
         _player.transform.position = _playerSpawnPosition;
         _playerAgent.enabled = false;
         _playerMovement.SetCurrentMovePosition(_player.transform.position);
         _playerAgent.enabled = true;
         Instantiate(_bossPrefab, _bossSpawnLocation.transform.position, _bossSpawnLocation.transform.rotation);
-        _exitDoor.SetActive(true);
         _enemySpawnTrigger.enabled = true;
     }
 
@@ -57,10 +60,5 @@ public class FloorManager : MonoBehaviour
     {
         _pauseManager.SwitchPauseBool();
         _upgradeMenu.SetActive(true);
-    }
-
-    public void SetDoorStatus(bool input)
-    {
-        _exitDoor.SetActive(input);
     }
 }

@@ -15,7 +15,7 @@ public class EnemyAttack : MonoBehaviour
     public bool _attackBool = false;
     private bool _isAttacking = false;
 
-    private enum AttackTypes { ProjectileAttack, FlameAttack };
+    private enum AttackTypes { ProjectileAttack, FlameAttack, NoAttack };
     [SerializeField] private AttackTypes attacks;
 
     private void Start()
@@ -36,6 +36,8 @@ public class EnemyAttack : MonoBehaviour
                     break;
                 case AttackTypes.FlameAttack:
                     StartCoroutine(FlameAttack());
+                    break;
+                case AttackTypes.NoAttack:
                     break;
             }
         }
