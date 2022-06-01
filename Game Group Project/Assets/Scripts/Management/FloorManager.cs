@@ -18,6 +18,8 @@ public class FloorManager : MonoBehaviour
     [SerializeField] private GameManagement _gameManagement;
     [SerializeField] private PauseManager _pauseManager;
 
+    private GameObject _bossTank;
+
     private DoorPath _doorPath;
 
     private Vector3 _playerSpawnPosition;
@@ -37,14 +39,17 @@ public class FloorManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        _enemySpawner._enemyList.Clear();
         _gameManagement.IncreaseFloor();
+        _enemySpawner._enemyList.Clear();
+        _enemySpawner.DestroyAllEnemies();
+        Destroy(_bossTank);
         _doorPath.OpenPath();
         _player.transform.position = _playerSpawnPosition;
         _playerAgent.enabled = false;
+        _bossTank = Instantiate(_bossPrefab, _bossSpawnLocation.transform.position, _bossSpawnLocation.transform.rotation);
         _playerMovement.SetCurrentMovePosition(_player.transform.position);
         _playerAgent.enabled = true;
-        Instantiate(_bossPrefab, _bossSpawnLocation.transform.position, _bossSpawnLocation.transform.rotation);
+        
         _enemySpawnTrigger.enabled = true;
     }
 

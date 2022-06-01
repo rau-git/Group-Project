@@ -10,29 +10,29 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Enemy Prefabs")]
-    [SerializeField] List<GameObject> _enemyTypes;
-    [Space(20)]
+    [Header("Enemy Prefabs")] [SerializeField]
+    List<GameObject> _enemyTypes;
 
-    [Header("Spawn Values")]
-    [SerializeField] private Vector2 _defaultSpawnAmount;
-    [Range(1, 1000)] 
-    [SerializeField] private float _spawnRange;
-    [Space(20)]
+    [Space(20)] [Header("Spawn Values")] [SerializeField]
+    private Vector2 _defaultSpawnAmount;
 
-    [Header("Spawn Bounds")]
-    [SerializeField] private Vector3 bounds;
+    [Range(1, 1000)] [SerializeField] private float _spawnRange;
+
+    [Space(20)] [Header("Spawn Bounds")] [SerializeField]
+    private Vector3 bounds;
+
     [SerializeField] private float xBounds;
     [SerializeField] private float yBounds;
     [SerializeField] private float zBounds;
 
-    [Header("Assignables")] 
-    [SerializeField] private FloorManager _floorManager;
+    [Header("Assignables")] [SerializeField]
+    private FloorManager _floorManager;
+
     [SerializeField] private GameManagement _gameManagement;
-    
+
     private Collider _myCollider;
 
-    public List<GameObject> _enemyList = new List<GameObject>();
+    public List<GameObject> _enemyList;
 
     private void Awake()
     {
@@ -49,15 +49,26 @@ public class EnemySpawner : MonoBehaviour
     [ContextMenu("Populate")]
     public void PopulateNavmesh()
     {
-        int _spawnAmount = Mathf.RoundToInt(Random.Range(_defaultSpawnAmount.x, _defaultSpawnAmount.y) * _gameManagement._currentDifficulty);
-        
+        int _spawnAmount = Mathf.RoundToInt(Random.Range(_defaultSpawnAmount.x, _defaultSpawnAmount.y) *
+                                            _gameManagement._currentDifficulty);
+
         foreach (GameObject enemy in _enemyTypes)
         {
             for (int i = 0; i < _spawnAmount / _enemyTypes.Capacity; i++)
             {
-                GameObject instantiatedObject = Instantiate(enemy, GetRandomPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+                GameObject instantiatedObject = Instantiate(enemy, GetRandomPosition(),
+                    Quaternion.Euler(0, Random.Range(0, 360), 0));
+                instantiatedObject.transform.SetParent(this.transform);
                 _enemyList.Add(instantiatedObject);
             }
+        }
+    }
+
+    public void DestroyAllEnemies()
+    {
+        foreach (Transform child in this.transform)
+        {
+            Destroy(child.gameObject);
         }
     }
 
